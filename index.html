@@ -40,27 +40,25 @@ The ans
 <br/>
 
 <form>
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
+  <div id="Word01">
+  </div>
   <br/>
   <br/>
   <br/>
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
-  <input class="textbox5" value="" >
+  <div id="Word02">
+  </div>
 </form>
 
 <script>
   $(document).ready(function(){
+
+    var myLength1 = $("#Text01").text().length;
+    var myLength2 = $("#Text02").text().length;
+
+    $('#Word01').append(new Array(myLength1 +1).join('<input class="textbox5" value="" >'));
+
+    $('#Word02').append(new Array(myLength2 +1).join('<input class="textbox5" value="" >'));
+
 
     $(".textbox5").attr('maxlength', '1');
 
@@ -82,6 +80,13 @@ The ans
 
         else if ( $(this).hasClass('full') ) {
           console.log("Stay");
+          var inputs = $(this).closest('form').find(':input');
+          $(this).removeClass('full');
+          inputs.eq( inputs.index(this)).focus();
+
+        }
+        else if ( $(this).index() == 0 && value == 0) {
+          console.log("StayFirst");
           var inputs = $(this).closest('form').find(':input');
           $(this).removeClass('full');
           inputs.eq( inputs.index(this)).focus();
