@@ -60,39 +60,39 @@ The ans
 </form>
 
 <script>
-  $(document).ready(function(){
+//   $(document).ready(function(){
 
-    $(".textbox5").attr('maxlength', '1');
-    $(".textbox5").keyup(function(){
+//     $(".textbox5").attr('maxlength', '1');
+//     $(".textbox5").keyup(function(){
 
-      var value = $(this).val().length;
-      console.log(value);
+//       var value = $(this).val().length;
+//       console.log(value);
 
-      if (value >= 1) {
+//       if (value >= 1) {
 
-        var inputs = $(this).closest('form').find(':input');
-        inputs.eq( inputs.index(this)+1 ).blur();
-        $(this).addClass('full');
-        console.log("Plus 1");
-      }
+//         var inputs = $(this).closest('form').find(':input');
+//         inputs.eq( inputs.index(this)+1 ).blur();
+//         $(this).addClass('full');
+//         console.log("Plus 1");
+//       }
 
-      else if ( $(this).hasClass('full') ) {
-        console.log("Stay");
-        var inputs = $(this).closest('form').find(':input');
-        $(this).removeClass('full');
-        inputs.eq( inputs.index(this)).blur();
+//       else if ( $(this).hasClass('full') ) {
+//         console.log("Stay");
+//         var inputs = $(this).closest('form').find(':input');
+//         $(this).removeClass('full');
+//         inputs.eq( inputs.index(this)).blur();
 
-      }
+//       }
 
-      else if ( value == 0 ) {
-        console.log("Nagative 1");
-        var inputs = $(this).closest('form').find(':input');
-        $(this).removeClass('full');
-        inputs.eq( inputs.index(this)-1 ).blur();
+//       else if ( value == 0 ) {
+//         console.log("Nagative 1");
+//         var inputs = $(this).closest('form').find(':input');
+//         $(this).removeClass('full');
+//         inputs.eq( inputs.index(this)-1 ).blur();
 
-      }
+//       }
 
-    });
-  });
+//     });
+//   });
 </script>
 </body></html>
