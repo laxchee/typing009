@@ -70,14 +70,12 @@ The ans
 
     else {
       $(".textbox5").keyup(function(){
-
-      var value = $(this).val().length;
-      console.log(value);
+        var value = $(this).val().length;
+        console.log(value);
 
         if (value >= 1) {
-
           var inputs = $(this).closest('form').find(':input');
-          inputs.eq( inputs.index(this)+1 ).blur();
+          inputs.eq( inputs.index(this)+1 ).focus();
           $(this).addClass('full');
           console.log("Plus 1");
         }
@@ -86,7 +84,7 @@ The ans
           console.log("Stay");
           var inputs = $(this).closest('form').find(':input');
           $(this).removeClass('full');
-          inputs.eq( inputs.index(this)).blur();
+          inputs.eq( inputs.index(this)).focus();
 
         }
 
@@ -94,10 +92,10 @@ The ans
           console.log("Nagative 1");
           var inputs = $(this).closest('form').find(':input');
           $(this).removeClass('full');
-          inputs.eq( inputs.index(this)-1 ).blur();
+          inputs.eq( inputs.index(this)-1 ).focus();
 
         }
-        
+
       });
     }
 
