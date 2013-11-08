@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<style>
+  .answer-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .textbox5{
+    display: inline-block;
+    width: 30px;
+
+  }
+  .Ans div{
+
+    display: inline-block;
+
+  }
+  .hint div{
+    width: 100%;
+    text-align: center;
+  }
+
+</style>
+</head>
+<body>
+
+<div>
+The ans
+</div>
+<div class="Ans">
+  <div id="Text01">dinosaurs</div>
+  <div id="Text02">shit</div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<form>
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <br/>
+  <br/>
+  <br/>
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+  <input class="textbox5" value="" >
+</form>
+
+<script>
+  $(document).ready(function(){
+
+    $(".textbox5").attr('maxlength', '1');
+    $(".textbox5").keyup(function(){
+
+      var value = $(this).val().length;
+      console.log(value);
+
+      if (value >= 1) {
+
+        var inputs = $(this).closest('form').find(':input');
+        inputs.eq( inputs.index(this)+1 ).trigger( "focus" );
+        $(this).addClass('full');
+        console.log("Plus 1");
+      }
+
+      else if ( $(this).hasClass('full') ) {
+        console.log("Stay");
+        var inputs = $(this).closest('form').find(':input');
+        $(this).removeClass('full');
+        inputs.eq( inputs.index(this)).trigger( "focus" );
+
+      }
+
+      else if ( value == 0 ) {
+        console.log("Nagative 1");
+        var inputs = $(this).closest('form').find(':input');
+        $(this).removeClass('full');
+        inputs.eq( inputs.index(this)-1 ).trigger( "focus" );
+
+      }
+
+    });
+  });
+</script>
+</body></html>
