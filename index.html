@@ -32,6 +32,7 @@ The ans
 <div class="Ans">
   <div id="Text01">dinosaurs</div>
   <div id="Text02">shit</div>
+   <button type="button">Next</button>
 </div>
 
 <br/>
@@ -63,6 +64,10 @@ The ans
 
     //logic for UX when typing hahaha
     if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+
+      $('button').on('click', function () {      
+        focused.next('.textbox5').trigger('touchstart'); //trigger touchstart
+      });
 
       $('.textbox5').on('touchstart', function () {
         var value = $(this).val().length;
