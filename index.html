@@ -33,23 +33,100 @@
 		.pink{
 			background-color: #ffdeef !important;
 		}
+		.face{
+			position: absolute;
+			z-index: -1;
+		}
+		.happy{
+			width: 300px;
+			height: 300px;
+			background-image: url('happy.png');
+		}
+		.unhappy{
+			width: 300px;
+			height: 300px;
+			background-image: url('unhappy.png');
+		}
+		.faceicon{
+			width: 300px;
+			height: 300px;
+			margin: 0 auto;
+			margin-top: 150px;
+		}
+		@-webkit-keyframes wiggle {
+			0% {-webkit-transform:rotate(4deg);}
+			50% {-webkit-transform:rotate(-4deg);}
+			100% {-webkit-transform:rotate(4deg);}
+		}
+		 
+		/* firefox */
+		@-moz-keyframes wiggle {
+			0% {-moz-transform:rotate(4deg);}
+			50% {-moz-transform:rotate(-4deg);}
+			100% {-moz-transform:rotate(4deg);}
+		}
+		 
+		/* anyone brave enough to implement the ideal method */
+		@keyframes wiggle {
+			0% {transform:rotate(4deg);}
+			50% {transform:rotate(-4deg);}
+			100% {transform:rotate(4deg);}
+		}
+		 
+		.wiggler {
+			-webkit-animation: wiggle 0.5s infinite;
+			-moz-animation: wiggle 0.5s infinite;
+			animation: wiggle 0.5s infinite;
+		}
+
+		@-webkit-keyframes wiggle {
+			0% {-webkit-transform:rotate(4deg);}
+			50% {-webkit-transform:rotate(-4deg);}
+			100% {-webkit-transform:rotate(4deg);}
+		}
+		 
+		/* firefox */
+		@-moz-keyframes wiggle {
+			0% {-moz-transform:rotate(4deg);}
+			50% {-moz-transform:rotate(-4deg);}
+			100% {-moz-transform:rotate(4deg);}
+		}
+		 
+		/* anyone brave enough to implement the ideal method */
+		@keyframes wiggle {
+			0% {transform:rotate(4deg);}
+			50% {transform:rotate(-4deg);}
+			100% {transform:rotate(4deg);}
+		}
+		 
+		.wigglerrr {
+			-webkit-animation: wiggle 0.1s infinite;
+			-moz-animation: wiggle 0.1s infinite;
+			animation: wiggle 0.1s infinite;
+		}
 		
 	</style>
 
  	<script>
 	 	jQuery(document).ready(function () {
+	 			var faceicon = $(".faceicon");
 				jQuery(window).bind('shakeupdown',function(){
 					$('#body').removeClass("pink");
+					faceicon.removeClass('unhappy');
+					faceicon.removeClass('wigglerrr');
 					setTimeout( function() {
 				        alert("Stop It");
-				    }, 3000);	
+				    }, 2000);	
 				});
 
 				jQuery("#body").bind('pinchclose',function(){
 					$('#body').addClass("pink");
+					faceicon.addClass('unhappy');
+					faceicon.removeClass('wiggler');
+					faceicon.addClass('wigglerrr');
 					setTimeout( function() {
 				        alert("Pain Lah");
-				    }, 3000);
+				    }, 2000);
 					
 				});
 		});
@@ -59,7 +136,10 @@
     </head>
     <body id="body">
 
-    	<div id="hand"></div>
+    	<div class="face">
+    		<div class="faceicon happy wiggler">
+    		
+    	</div>
 		
 
 	</body>
