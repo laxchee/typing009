@@ -105,17 +105,15 @@
 
 		</style>
 
- 	<script>jQuery(document).ready(function () {
-			 jQuery(window).bind('shakeupdown',function(event_,data_){
-				alert('shake: '+ data_.description)
+ 	<script>
+ 	jQuery(document).ready(function () {
+			 jQuery(window).bind('swipedown',function(event_,data_){
+				alert('swipedown: '+ data_.description)
 			})
 		})
  	</script>
 
  <script>
-
-
-
 function log(event_, obj) {
 // ignore bubbled handlers
 //		if ( obj.originalEvent.currentTarget !== obj.originalEvent.target ) { return; }
