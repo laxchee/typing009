@@ -25,9 +25,15 @@
  	<script>
  	jQuery(document).ready(function () {
 			jQuery(window).bind('shakeupdown',function(){
+				$('body').animate({
+					background-color: 'white'
+				})
 				alert("Stop It")
 			});
 			jQuery("body").bind('pinchclose',function(){
+				$('body').animate({
+					background-color: '#ffeaf5'
+				})
 				alert("Pain Lah");
 			});
 		});
