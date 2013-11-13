@@ -71,13 +71,17 @@
 			background-size: 100% 100%;
 			text-align: center;
 		}
-		.show{
-			display: block;
-		}
 		.speach div{
 			width: 100%;
 			font-family: arial;
 			display: none;
+		}
+		.show{
+			display: block !important;
+			-webkit-animation: pop 4s infinite;
+			-moz-animation: pop 4s infinite;
+			animation: pop 4s infinite;
+			-webkit-animation-fill-mode: forwards;
 		}
 
 		@-webkit-keyframes wiggle {
@@ -120,7 +124,36 @@
 			50% {transform:rotate(-4deg);}
 			100% {transform:rotate(4deg);}
 		}
+		/* anyone brave enough to implement the ideal method */
+		@keyframes pop {
+			0% {width: 0px; height: 0px; margin-top: 41px; }
+			10% {width: 150px; height: 41px; margin-top: 0px; }
+			90% {width: 150px; height: 41px; margin-top: 0px; }
+			100% {width: 0px; height: 0px; margin-top: 41px; }
+		}
+
+		@-webkit-keyframes pop {
+			0% {width: 0px; height: 0px; margin-top: 41px; }
+			10% {width: 150px; height: 41px; margin-top: 0px; }
+			90% {width: 150px; height: 41px; margin-top: 0px; }
+			100% {width: 0px; height: 0px; margin-top: 41px; }
+		}
 		 
+		/* firefox */
+		@-moz-keyframes pop {
+			0% {width: 0px; height: 0px; margin-top: 41px; }
+			10% {width: 150px; height: 41px; margin-top: 0px; }
+			90% {width: 150px; height: 41px; margin-top: 0px; }
+			100% {width: 0px; height: 0px; margin-top: 41px; }
+		}
+		 
+		/* anyone brave enough to implement the ideal method */
+		@keyframes pop {
+			0% {width: 0px; height: 0px; margin-top: 41px; }
+			10% {width: 150px; height: 41px; margin-top: 0px; }
+			90% {width: 150px; height: 41px; margin-top: 0px; }
+			100% {width: 0px; height: 0px; margin-top: 41px; }
+		}
 		
 	</style>
 	<script type="text/javascript">
@@ -130,17 +163,23 @@
 	</script>
  	<script>
 	 	jQuery(document).ready(function () {
+
 	 			var faceicon = $(".faceicon");
+
 				jQuery(window).bind('shakeupdown',function(){
-					$('#body').toggleClass("pink");
-					faceicon.toggleClass('unhappy, wigglerrr');
-					$(".speach div").toggleClass('show');
+					$('#body').removeClass("pink");
+					faceicon.removeClass('unhappy');
+					faceicon.removeClass('wigglerrr');
+					$('speach2').removeClass('show');
+					$('speach1').addClass('show');
 				});
 
 				jQuery("#body").bind('pinchclose',function(){
-					$('#body').toggleClass("pink");
-					faceicon.toggleClass('unhappy, wigglerrr');
-					$(".speach div").toggleClass('show');
+					$('#body').addClass("pink");
+					faceicon.addClass('unhappy');
+					faceicon.addClass('wigglerrr');
+					$('speach1').removeClass('show');
+					$('speach2').addClass('show');
 				});
 		});
 	</script>
@@ -151,9 +190,11 @@
 
     	<div class="face">
     		<div class="faceicon happy wiggler">
-    			<div class="speach">
+    			<div class="speach1">
+    				<div >Stop It</div>
+    			</div>
+    			<div class="speach2">
     				<div>Pain Lah</div>
-    				<div class="show">Stop It</div>
     			</div>
     		</div>
     		
