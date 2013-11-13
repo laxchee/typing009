@@ -1,131 +1,189 @@
-<!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<style>
-  .answer-form {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 
-  .textbox5{
-    display: inline-block;
-    width: 30px;
+		<title>Neue Digitale / Razorfish GmbH - jGestures Demo</title>
 
-  }
-  .Ans div{
+		<!-- meta -->
+		<meta name="language" content="en" />
+		<meta name="robots" content="index, follow" />
 
-    display: inline-block;
+		<!-- script -->
+		<script src="jquery-1.4.2.js"  type="text/javascript"></script>
+		<script src="jgestures.js"  type="text/javascript"></script>
 
-  }
-  .hint div{
-    width: 100%;
-    text-align: center;
-  }
+		<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		</style>script>
 
-</style>
-</head>
-<body>
+ 	<script>jQuery(document).ready(function () {
+			 jQuery(window).bind('shakeupdown',function(event_,data_){
+				alert('shake: '+ data_.description)
+			})
+		})
+ 	</script>
 
-<div>
-The ans
-</div>
-<div class="Ans">
-  <div id="Text01">dinosaurs</div>
-  <div id="Text02">shit</div>
-   <button type="button">Next</button>
-</div>
+ <script>
 
-<br/>
-<br/>
-<br/>
-<br/>
 
-<form>
-  <div id="Word01">
-  </div>
-</form>
 
-<script>
-  $(document).ready(function(){
-    //tracking the amount of text for the answer
-    var myLength1 = $("#Text01").text().length;
-    var myLength2 = $("#Text02").text().length;
-    //Build a funtion for it typing
-    $.fn.appending = function( amound ){
-      this.append(new Array( amound + 1 ).join('<input class="textbox5" value="" >'));
-    }
-    
-    $('#Word01').appending( myLength1 );
-    $('#Word01').append(new Array(2).join('<br/>'));
-    $('#Word01').appending( myLength2 );
+function log(event_, obj) {
+// ignore bubbled handlers
+//		if ( obj.originalEvent.currentTarget !== obj.originalEvent.target ) { return; }
+	obj.originalEvent.preventDefault();
+	jQuery('#logger')
+		.find('li')
+			.slice(1,jQuery('#logger').find('li').size()-8)
+				.animate({'opacity':'0', 'height':'0'},function(){jQuery(this).remove()})
+			.end()
+		.end()
+		.append('<li><b>'+jQuery(obj.originalEvent.currentTarget).attr('id')+'</b>: '+obj.description+ ' : '+obj.type +'</li>')
 
-    //Text amount for input
-    $(".textbox5").attr('maxlength', '1');
+}
 
-    //logic for UX when typing hahaha
-    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+function manipulate(event_, obj) {
+// ignore bubbled handlers
+//		if ( obj.originalEvent.currentTarget !== obj.originalEvent.target ) { return; }
+	event_.preventDefault();
+	obj.originalEvent.preventDefault();
+	log(event_, obj)
 
-      $('button').on('click', function () {      
-        focused.next('.textbox5').trigger('touchstart'); //trigger touchstart
-      });
+	var _a = obj.description.split(':');
 
-      $('.textbox5').on('touchstart', function () {
-        var value = $(this).val().length;
-        console.log(value);
+	jQuery(obj.originalEvent.currentTarget).css('zIndex','1000')
+	switch(_a[0]) {
+		case 'pinch':
+			//jQuery(obj.originalEvent.currentTarget).css('-webkit-transform','scale('+ ( obj.direction * obj.delta[0].moved ) +')');
+		break;
+		case  'rotate':
+ 			//jQuery(obj.originalEvent.currentTarget).css('-webkit-transform','rotate('+ (  obj.delta[0].moved ) +'deg)');
+		break;
 
-        if (value >= 1) {
-          var inputs = $(this).closest('form').find(':input');
-          inputs.eq( inputs.index(this)+1 ).focus();
-          $(this).addClass('full');
-          console.log("Plus 1");
-        }
+		case  'swipemove':
+			if(_a[1] != 1) {break;}
+			jQuery(obj.originalEvent.currentTarget).css('-webkit-transition','');
+ 			jQuery(obj.originalEvent.currentTarget).css('left', parseInt(jQuery(obj.originalEvent.currentTarget).css('left')) + obj.delta[0].startX );
+			jQuery(obj.originalEvent.currentTarget).css('top', parseInt(jQuery(obj.originalEvent.currentTarget).css('top')) + obj.delta[0].startY );
+//			jQuery(obj.originalEvent.currentTarget).data('moving',true)
+		break;
 
-        else if ( $(this).hasClass('full') || $(this).index() == 0 && value == 0) {
-          console.log("Stay");
-          var inputs = $(this).closest('form').find(':input');
-          $(this).removeClass('full');
-          inputs.eq( inputs.index(this)).focus();
-        }
+		case 'swipe' :
+//			if(_a[1] != 1 || jQuery(obj.originalEvent.currentTarget).data('moving') } {break;}
+ 			jQuery(obj.originalEvent.currentTarget).css('-webkit-transition','all 1s ease-out').css('left', parseInt(jQuery(obj.originalEvent.currentTarget).css('left')) + obj.delta[0].startX );
+			jQuery(obj.originalEvent.currentTarget).css('-webkit-transition','all 1s ease-out').css('top', parseInt(jQuery(obj.originalEvent.currentTarget).css('top')) + obj.delta[0].startY );
+		break;
+	  }
+	  jQuery(obj.originalEvent.currentTarget).css('zIndex','')
+}
 
-        else if ( value == 0 ) {
-          console.log("Nagative 1");
-          var inputs = $(this).closest('form').find(':input');
-          inputs.eq( inputs.index(this)-1 ).focus();
-        }
+	function BlockMove(event) {
+		// Tell Safari not to move the window.
+		event.preventDefault() ;
+	}
 
-      });
 
-    }
+jQuery(document).ready(function() {
 
-    else {
-      $(".textbox5").keyup(function(){
-        var value = $(this).val().length;
-        console.log(value);
 
-        if (value >= 1) {
-          var inputs = $(this).closest('form').find(':input');
-          inputs.eq( inputs.index(this)+1 ).focus();
-          $(this).addClass('full');
-          console.log("Plus 1");
-        }
+	jQuery('#tap').bind('tapone',log);
+	jQuery('#tap').bind('taptwo',log);
+	jQuery('#tap').bind('tapthree',log);
+	jQuery('#tap').bind('tapfour',log);
 
-        else if ( $(this).hasClass('full') || $(this).index() == 0 && value == 0) {
-          console.log("Stay");
-          var inputs = $(this).closest('form').find(':input');
-          $(this).removeClass('full');
-          inputs.eq( inputs.index(this)).focus();
-        }
 
-        else if ( value == 0 ) {
-          console.log("Nagative 1");
-          var inputs = $(this).closest('form').find(':input');
-          inputs.eq( inputs.index(this)-1 ).focus();
-        }
+	jQuery('#swipe').bind('swipeone',log);
+	jQuery('#swipe').bind('swipetwo',log);
+	jQuery('#swipe').bind('swipethree',log);
+	jQuery('#swipe').bind('swipefour',log);
 
-      });
-    }
+	jQuery('#swipe').bind('swipeup',log);
+	jQuery('#swipe').bind('swiperightup',log);
+	jQuery('#swipe').bind('swiperight',log);
+	jQuery('#swipe').bind('swiperightdown',log);
 
-    
-  });
-</script>
-</body></html>
+	jQuery('#swipe').bind('swipedown',log);
+	jQuery('#swipe').bind('swipeleftdown',log);
+	jQuery('#swipe').bind('swipeleft',log);
+	jQuery('#swipe').bind('swipeleftup',log);
+
+	jQuery('#change').bind('pinchopen',manipulate);
+	jQuery('#change').bind('pinchclose',manipulate);
+	jQuery('#change').bind('rotatecw',manipulate);
+	jQuery('#change').bind('rotateccw',manipulate);
+ 	jQuery('#change').bind('swipeone',manipulate);
+
+	jQuery('#livechange').bind('swipeone',manipulate);
+	jQuery('#livechange').bind('swipemove',manipulate);
+	jQuery('#livechange').bind('pinch',manipulate);
+	jQuery('#livechange').bind('rotate',manipulate);
+
+})
+ </script>
+
+    </head>
+    <body>
+		<ul id="log2" style="position: absolute; right: 0; z-index:20000;" >
+ 		</ul>
+		<ul id="logger" >
+			<li>Description</li>
+		</ul>
+
+			<ul>
+				<li id="tap" class="tap">
+					<code>
+jQuery('#tap').bind('tapone',log);
+jQuery('#tap').bind('taptwo',log);
+jQuery('#tap').bind('tapthree',log);
+jQuery('#tap').bind('tapfour',log);
+ 					</code>
+				</li>
+				<li id="swipe" class="swipe">
+					<code>
+jQuery('#swipe').bind('swipeone',log);
+jQuery('#swipe').bind('swipetwo',log);
+jQuery('#swipe').bind('swipethree',log);
+jQuery('#swipe').bind('swipefour',log);
+ 					</code>
+					<code>
+jQuery('#swipe').bind('swipeup',log);
+jQuery('#swipe').bind('swiperightup',log);
+jQuery('#swipe').bind('swiperight',log);
+jQuery('#swipe').bind('swiperightdown',log);
+ 					</code>
+					<code>
+jQuery('#swipe').bind('swipedown',log);
+jQuery('#swipe').bind('swipeleftdown',log);
+jQuery('#swipe').bind('swipeleft',log);
+jQuery('#swipe').bind('swipeleftup',log);
+ 					</code>
+				</li>
+				<li id="change" class="gestureend">
+					<code>
+jQuery('#change').bind('pinchopen',manipulate);
+jQuery('#change').bind('pinchclose',manipulate);
+jQuery('#change').bind('rotatecw',manipulate);
+jQuery('#change').bind('rotateccw',manipulate);
+jQuery('#change').bind('swipeone',manipulate);
+
+
+ 					</code>
+				</li>
+				<li id="livechange" class="gesturechange">
+					<code>
+jQuery('#livechange').bind('swipemove',manipulate);
+jQuery('#livechange').bind('pinch',manipulate);
+jQuery('#livechange').bind('rotate',manipulate);
+jQuery('#livechange').bind('swipeone',manipulate);
+ 					</code>
+				</li>
+
+			</ul>
+
+
+
+	</body>
+</html>
