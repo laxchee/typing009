@@ -112,6 +112,13 @@
 			})
 		})
  	</script>
+ 	<script>
+ 	jQuery(document).ready(function () {
+			jQuery(window).bind('shakeupdown',function(event_,data_){
+				alert('shake: '+ data_.description)
+			})
+		})
+ 	</script>
 
  <script>
 function log(event_, obj) {
@@ -172,37 +179,9 @@ function manipulate(event_, obj) {
 jQuery(document).ready(function() {
 
 
-	jQuery('#tap').bind('tapone',log);
-	jQuery('#tap').bind('taptwo',log);
-	jQuery('#tap').bind('tapthree',log);
-	jQuery('#tap').bind('tapfour',log);
 
+	jQuery('html').bind('pinchclose',manipulate);
 
-	jQuery('#swipe').bind('swipeone',log);
-	jQuery('#swipe').bind('swipetwo',log);
-	jQuery('#swipe').bind('swipethree',log);
-	jQuery('#swipe').bind('swipefour',log);
-
-	jQuery('#swipe').bind('swipeup',log);
-	jQuery('#swipe').bind('swiperightup',log);
-	jQuery('#swipe').bind('swiperight',log);
-	jQuery('#swipe').bind('swiperightdown',log);
-
-	jQuery('#swipe').bind('swipedown',log);
-	jQuery('#swipe').bind('swipeleftdown',log);
-	jQuery('#swipe').bind('swipeleft',log);
-	jQuery('#swipe').bind('swipeleftup',log);
-
-	jQuery('#change').bind('pinchopen',manipulate);
-	jQuery('#change').bind('pinchclose',manipulate);
-	jQuery('#change').bind('rotatecw',manipulate);
-	jQuery('#change').bind('rotateccw',manipulate);
- 	jQuery('#change').bind('swipeone',manipulate);
-
-	jQuery('#livechange').bind('swipeone',manipulate);
-	jQuery('#livechange').bind('swipemove',manipulate);
-	jQuery('#livechange').bind('pinch',manipulate);
-	jQuery('#livechange').bind('rotate',manipulate);
 
 })
  </script>
@@ -214,59 +193,6 @@ jQuery(document).ready(function() {
 		<ul id="logger" >
 			<li>Description</li>
 		</ul>
-
-			<ul>
-				<li id="tap" class="tap">
-					<code>
-jQuery('#tap').bind('tapone',log);
-jQuery('#tap').bind('taptwo',log);
-jQuery('#tap').bind('tapthree',log);
-jQuery('#tap').bind('tapfour',log);
- 					</code>
-				</li>
-				<li id="swipe" class="swipe">
-					<code>
-jQuery('#swipe').bind('swipeone',log);
-jQuery('#swipe').bind('swipetwo',log);
-jQuery('#swipe').bind('swipethree',log);
-jQuery('#swipe').bind('swipefour',log);
- 					</code>
-					<code>
-jQuery('#swipe').bind('swipeup',log);
-jQuery('#swipe').bind('swiperightup',log);
-jQuery('#swipe').bind('swiperight',log);
-jQuery('#swipe').bind('swiperightdown',log);
- 					</code>
-					<code>
-jQuery('#swipe').bind('swipedown',log);
-jQuery('#swipe').bind('swipeleftdown',log);
-jQuery('#swipe').bind('swipeleft',log);
-jQuery('#swipe').bind('swipeleftup',log);
- 					</code>
-				</li>
-				<li id="change" class="gestureend">
-					<code>
-jQuery('#change').bind('pinchopen',manipulate);
-jQuery('#change').bind('pinchclose',manipulate);
-jQuery('#change').bind('rotatecw',manipulate);
-jQuery('#change').bind('rotateccw',manipulate);
-jQuery('#change').bind('swipeone',manipulate);
-
-
- 					</code>
-				</li>
-				<li id="livechange" class="gesturechange">
-					<code>
-jQuery('#livechange').bind('swipemove',manipulate);
-jQuery('#livechange').bind('pinch',manipulate);
-jQuery('#livechange').bind('rotate',manipulate);
-jQuery('#livechange').bind('swipeone',manipulate);
- 					</code>
-				</li>
-
-			</ul>
-
-
 
 	</body>
 </html>
