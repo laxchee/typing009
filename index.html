@@ -18,7 +18,92 @@
 			margin: 0;
 			padding: 0;
 		}
-		</style>script>
+		body {
+			font: arial normal 11px/1.5;
+
+		}
+		li {
+			list-style: none;
+		}
+
+		#logger {
+			position: absolute;
+			opacity: 0.75;
+			top:0;
+			left:0;
+			z-index:1;
+			background: #eee;
+			width: 200px;
+			padding: 5px;
+			-moz-box-shadow: 2px 2px 5px #000;
+			-webkit-box-shadow: 2px 2px 5px #000;
+
+		}
+
+		.gesturechange {
+			background: #eee;
+			border: 1px solid #ccc;
+			padding: 5px 2%;
+			width: 44%;
+			height: 175px;
+			position: absolute;
+			margin: 0 2% 0 1%;
+			left: 0%;
+			top:10px;
+			overflow: hidden;
+			-webkit-transition: all;
+		}
+
+		.gestureend {
+			background: #eee;
+			border: 1px solid #ccc;
+			padding: 5px 2%;
+			width: 44%;
+			height: 175px;
+			position: absolute;
+			margin: 0 2% 0 1%;
+			left: 50%;
+			top:10px;
+			-webkit-transition: all 1s ease-out;
+			overflow: hidden;
+
+		}
+		.swipe {
+			clear: left;
+			background: #ccc;
+			border: 1px solid #eee;
+			padding: 5px 2%; ;
+			width: 94%;
+			height: 150px;
+			position: absolute;
+			margin: 0 2% 0 1%;
+			left: 0%;
+			top:210px;
+
+		}
+		.tap {
+			clear: left;
+			background: #ccc;
+			border: 1px solid #eee;
+			padding: 5px 2%;
+			width: 94%;
+			height: 150px;
+			position: absolute;
+			margin: 0 2% 0 1%;
+			left: 0%;
+			top:390px;
+		}
+
+		code {
+			white-space: pre;
+			margin:0;
+			padding:0;
+			float: left;
+			width: 25%;
+		}
+
+
+		</style>
 
  	<script>jQuery(document).ready(function () {
 			 jQuery(window).bind('shakeupdown',function(event_,data_){
