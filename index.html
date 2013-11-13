@@ -75,9 +75,9 @@
 		}
 		.show{
 			display: block !important;
-			-webkit-animation: pop 4s infinite;
-			-moz-animation: pop 4s infinite;
-			animation: pop 4s infinite;
+			-webkit-animation: pop 4s ;
+			-moz-animation: pop 4s ;
+			animation: pop 4s ;
 			-webkit-animation-fill-mode: forwards;
 		}
 
@@ -163,16 +163,16 @@
 					$('#body').removeClass("pink");
 					faceicon.removeClass('unhappy');
 					faceicon.removeClass('wigglerrr');
-					$('speach2').removeClass('show');
-					$('speach1').addClass('show');
+					$('.speach2').removeClass('show');
+					$('.speach1').addClass('show');
 				});
 
 				jQuery("#body").bind('pinchclose',function(){
 					$('#body').addClass("pink");
 					faceicon.addClass('unhappy');
 					faceicon.addClass('wigglerrr');
-					$('speach1').removeClass('show');
-					$('speach2').addClass('show');
+					$('.speach1').removeClass('show');
+					$('.speach2').addClass('show');
 				});
 		});
 	</script>
