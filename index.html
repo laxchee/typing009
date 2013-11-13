@@ -10,8 +10,8 @@
 		<meta name="robots" content="index, follow" />
 
 		<!-- script -->
-		<script src="jquery-1.4.2.js"  type="text/javascript"></script>
-		<script src="jgestures.js"  type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<script src="jgestures.min.js"  type="text/javascript"></script>
 
 		<style type="text/css">
 		* {
@@ -107,8 +107,8 @@
 
  	<script>
  	jQuery(document).ready(function () {
-			 jQuery(window).bind('swipedown',function(event_,data_){
-				alert('swipedown: '+ data_.description)
+			jQuery(window).bind('shakeupdown',function(event_,data_){
+				alert('shake: '+ data_.description)
 			})
 		})
  	</script>
