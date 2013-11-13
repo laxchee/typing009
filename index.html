@@ -25,9 +25,9 @@
  	<script>
  	jQuery(document).ready(function () {
 			jQuery(window).bind('shakeupdown',function(event_,data_){
-				alert('shake: '+ data_.description)
+				alert("stop it")
 			});
-			jQuery("body").bind('pinchclose',function(event_,data_){
+			jQuery("body").bind('pinchclose',function(){
 				alert("your nini");
 			});
 		});
