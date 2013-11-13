@@ -13,34 +13,50 @@
 		<!-- script -->
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<script src="jgestures.min.js"  type="text/javascript"></script>
+
 	<style type="text/css">
-	*{
-		height: 100%;
-		width: 100%;
-	}
-	ul{
-		display: inline;
-	}
+		*{
+			height: 100%;
+			width: 100%;
+			margin: 0px;
+			padding: 0px;
+		}
+		ul{
+			display: inline;
+		}
+		#body{
+			-webkit-transition: 3s ease-in-out;
+			-moz-transition: 3s ease-in-out;
+			-o-transition: 3s ease-in-out;
+			background-color: white;
+		}
+		.pink{
+			background-color: #ffdeef !important;
+		}
+		
 	</style>
+
  	<script>
- 	jQuery(document).ready(function () {
-			jQuery(window).bind('shakeupdown',function(){
-				$('#body').animate({
-					'background' : 'white'
-				}, 5000 );
-				alert("Stop It")
-			});
-			jQuery("#body").bind('pinchclose',function(){
-				$('body').animate({
-					'background' : 'black'
-				}, 3000 );
-				alert("Pain Lah");
-			});
+	 	jQuery(document).ready(function () {
+				jQuery(window).bind('shakeupdown',function(){
+					$('#body').removeClass("pink", function(){
+						alert("Stop It");	
+					});
+					
+				});
+				jQuery("#body").bind('pinchclose',function(){
+					$('#body').addClass("pink", function(){
+						alert("Pain Lah");	
+					});
+				});
 		});
- 	</script>
+	</script>
+
 
     </head>
     <body id="body">
+
+    	<div id="hand"></div>
 		
 
 	</body>
