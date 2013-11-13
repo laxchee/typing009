@@ -25,14 +25,14 @@
  	<script>
  	jQuery(document).ready(function () {
 			jQuery(window).bind('shakeupdown',function(){
-				$('body').animate({
-					'background-color' : 'white'
+				$('#body').animate({
+					'background' : 'white'
 				}, 5000 );
 				alert("Stop It")
 			});
-			jQuery("body").bind('pinchclose',function(){
+			jQuery("#body").bind('pinchclose',function(){
 				$('body').animate({
-					'background-color' : 'black'
+					'background' : 'black'
 				}, 3000 );
 				alert("Pain Lah");
 			});
@@ -40,7 +40,7 @@
  	</script>
 
     </head>
-    <body>
+    <body id="body">
 		
 
 	</body>
