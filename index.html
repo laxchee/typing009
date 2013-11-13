@@ -39,15 +39,18 @@
  	<script>
 	 	jQuery(document).ready(function () {
 				jQuery(window).bind('shakeupdown',function(){
-					$('#body').removeClass("pink", function(){
-						alert("Stop It");	
-					});
-					
+					$('#body').removeClass("pink");
+					setTimeout( function() {
+				        alert("Stop It");
+				    }, 3000);	
 				});
+
 				jQuery("#body").bind('pinchclose',function(){
-					$('#body').addClass("pink", function(){
-						alert("Pain Lah");	
-					});
+					$('#body').addClass("pink");
+					setTimeout( function() {
+				        alert("Pain Lah");
+				    }, 3000);
+					
 				});
 		});
 	</script>
