@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
+<script src="jquery-1.10.2.min.js"></script>
+<style>
+  .line-block{
+    display: inline-block;
+  }
+  .input-blank{
+  background-color: transparent;
+border: none;
+width: 28px;
+height: 35px;
+font-size: 32px;
+color: black;
+display: inline-block;
+vertical-align: top;
+}
+  .input-empty {
+  border-bottom: 2px solid black;
+}
+.input-selected{
+  border-bottom: 2px solid red;
+}
+</style>
+</head>
+<body>
+
+<div class="line-block">
+<div class="input-blank input-empty" id="char-0"></div>
+<div class="input-blank input-empty" id="char-1"></div>
+<div class="input-blank">
+
+</div>
+<div class="input-blank input-empty" id="char-2"></div>
+<div class="input-blank">
+ 
+</div>
+</div>
+<div class="line-block">
+<div class="input-blank input-empty input-selected" id="char-3"></div>
+<div class="input-blank input-empty" id="char-4"></div>
+<div class="input-blank input-empty" id="char-5"></div>
+<div class="input-blank input-empty" id="char-6"></div>
+<div class="input-blank"></div>
+<div class="input-blank input-empty" id="char-7"></div>
+</div>
+<input class="hidden-input" id="fake-input">
+
+<script>
+$(document).ready(function(){
+    
+    $("#test1").on("click", function(){
+      $("#fake-input").focus();
+    })
+    $("#test2").on("click", function(){
+      $("#test1").trigger("click");
+    })
+    // Quiz answer
+    var typing = (function(){
+      
+      var inputs = new Array();
+      var fake_input;
+      var curr_input;
+      var curr_index = 0;
+      var empty;
+      var length_input;      
+
+      function init(){
+        var i;
+        var input_empty  = $(".input-empty");
+        fake_input = $("#fake-input");
+        for( i = 0; i < input_empty.length; i++){
+          inputs[i] = $( input_empty[i] );
+        };
+        length_input = inputs.length;
+
+      }
+
+      function setInputEvent(){
+
+        fake_input.on("keyup", function(e){
+          switch( e.keyCode ){ // Left right arrow keys
+            case 37: // Left
+              if( curr_index > 0 )
+                curr_index--;
+                inputs[curr_index].trigger("click");
+              return;
+              break;
+            case 39: //Right
+              if( curr_index < length_input - 1 )
+                curr_index++;
+                inputs[curr_index].trigger("click");
+              return;
+            case 13: //enter
+              $("#submit-quiz").trigger("click");
+              return;
+              break;
+            case 32: //space
+              return;
+              break;
+            case 8: //delete
+              if( curr_index == length_input )
+                curr_index--;
+              inputs[curr_index].html( fake_input.val() );
+              if( curr_index > 0 ){
+                curr_index--;
+                inputs[curr_index].trigger("click");
+              }
+              return;
+              break;
+          }
+
+          if( curr_index == length_input ){
+            curr_index--;
+          }
+
+          inputs[curr_index].html( fake_input.val() );
+          curr_index++;
+          if( curr_index < length_input ){
+            inputs[curr_index].trigger("click");
+          }
+        });
+      }
+
+      function setClickEvent(){
+        $(".input-blank").on("click", function(){
+          var value;
+          curr_input = $(this);
+          if( curr_input.hasClass("input-empty") ){
+            // alert("bb");
+            $(".input-selected").removeClass("input-selected"); // Remove previous red underscore
+            curr_input.addClass("input-selected"); // Hightlight choosen
+
+            curr_index = getID( curr_input );
+            
+            value=curr_input.html().trim();
+            if ( value )
+              fake_input.val( value );
+            $("#fake-input").focus();
+          }
+        });
+      }
+
+      function getID( elem ){
+        return elem.attr("id").split("-")[1];
+      }
+
+      return {
+        setup: function(){
+          init();
+          setInputEvent();
+          setClickEvent();
+        }
+      }
+    })();
+
+    typing.setup();
+})
+</script>
+</body></html>
