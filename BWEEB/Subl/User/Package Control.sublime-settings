@@ -1,0 +1,12 @@
+{
+	"installed_packages":
+	[
+		"Haml",
+		"JSHint Gutter",
+		"Rails Developer Snippets",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeGit",
+		"sublimelint"
+	]
+}
