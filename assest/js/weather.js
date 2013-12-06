@@ -33,24 +33,6 @@ function weather(mode){
     });
     
 }
-
-$(document).ready(function(){
-// --------------------------------------------------------
-// toggle function 0F 0C
-// --------------------------------------------------------
-    weather('c');
-    $('button').toggle(
-      function(){
-        weather('f');
-      },
-      function(){
-        weather('c');
-      }
-    );
-
-});
-
-
 // --------------------------------------------------------
 // Monster interaction
 // --------------------------------------------------------
@@ -74,4 +56,27 @@ jQuery(document).ready(function () {
         $(this).fadeOut();
         $('.holder').removeClass('blurme');
     });
+    
+    // --------------------------------------------------------
+    // Font import
+    // --------------------------------------------------------
+
+    WebFontConfig = {
+    google: { families: [ 'Rationale::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+
+
 });
+
+
+
+

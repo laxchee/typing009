@@ -1,12 +1,31 @@
 *{
 	height: auto;
-	width: 100%;
+	width: auto;
 	margin: 0px;
 	padding: 0px;
 }
 #body{
 	background-color: #7ee4db;
 }
+.clear{
+	clear: both;
+}
+.ui-widget-overlay{
+	display: none;
+}
+/*---------------------Embedding Fonts--------------------*/
+@font-face{
+  font-family:'blanch';
+  src: url('assest/BLANCH_CAP_0.otf');
+  src: local('blanch'), local('blanch'), url('assest/BLANCH_CAP_0.otf') format('truetype');
+}
+@font-face{
+  font-family:'blanch';
+  src: url('assest/BLANCH_CAP_0.otf');
+  src: local('blanch'), local('blanch'), url('assest/BLANCH_CAP_0.otf') format('truetype');
+}
+@import url(http://fonts.googleapis.com/css?family=Rationale);
+
 
 /*---------------------iphone should have--------------------*/
 
@@ -36,7 +55,8 @@
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
-
+	left: 0px;
+	top: 0px;
 }
 
 .screen_face{
@@ -45,39 +65,50 @@
 	height: 1136px;
 	margin: 0 auto;
 	margin-top: 300px;
-	background-color: #7ee4db;
+	background-color: #adf9f7;
 }
-
+.overlay{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: auto;
+}
 .pink{
 	background-color: #ffdeef !important;
 }
+
 .happy{
-	margin-top: 190px;
-	width: 300px;
-	height: 300px;
+	width: 550px;
+	height: 367px;
 	background-image: url('../images/happy.png');
 }
+
 .unhappy{
-	width: 300px;
-	height: 300px;
+	width: 550px;
+	height: 370px;
 	background-image: url('../images/unhappy.png');
 }
+
 .faceicon{
-	width: 300px;
-	height: 300px;
+	width: 550px;
+	height: 327px;
 	margin: 0 auto;
-	margin-top: 50px;
+	margin-top: 190px;
 }
+
 .wigglerrr {
-	-webkit-animation: wiggle 0.1s infinite;
-	-moz-animation: wiggle 0.1s infinite;
-	animation: wiggle 0.1s infinite;
+	-webkit-animation: wiggle 0.1s infinite !important;
+	-moz-animation: wiggle 0.1s infinite !important;
+	animation: wiggle 0.1s infinite !important;
 }
+
 .wiggler {
-	-webkit-animation: wiggle 0.5s infinite;
-	-moz-animation: wiggle 0.5s infinite;
-	animation: wiggle 0.5s infinite;
+	-webkit-animation: wiggle 1s infinite;
+	-moz-animation: wiggle 1s infinite;
+	animation: wiggle 1s infinite;
 }
+
 .speach2, .speach1{
 	width: 0px;
 	height: 0px;
@@ -93,6 +124,67 @@
 	-moz-animation: pop 4s ;
 	animation: pop 4s ;
 	-webkit-animation-fill-mode: forwards;
+}
+.content_info{
+	position: absolute;
+	width: 330px;
+	height: 275px;
+	margin: 0 auto;
+	bottom: 230px;
+	left: 24%;
+}
+.content_info div{
+	font-family: 'Rationale', sans-serif;
+	color: #4d0606;
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+}
+.content_info .time{
+	font-size: 135px;
+	line-height: 110px;
+	margin: -5px 0 20px 0;
+	float: left;
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+}
+.time_detail{
+	font-size: 50px;
+	line-height: 50px;
+}
+.time_detail:first-child{
+	font-size: 60px;
+	line-height: 60px;
+}
+.detail_holder{
+	float: left;
+	padding: 5px 0 0 5px;
+}
+.day_holder{
+	text-align: center;
+	margin-top: 100px;
+}
+.date_holder{
+	text-align: center;
+	margin-top: 30px;
+}
+.date{
+	font-size: 60px;
+	line-height: 50px;
+	padding-top: 3px;
+	display: inline-block;
+	text-transform:uppercase;
+	border-top: 1px solid #4d0606;
+}
+.day_nameing{
+	font-size: 55px;
+	line-height: 55px;
+	text-transform:uppercase;
 }
 /*---------------------Blur effect--------------------*/
 
