@@ -40,7 +40,7 @@ $(function()
 	{
 	 var alarmDate = new Date();
 	 var currentDate = new Date();
-
+	 
 	/*parse the string to a date*/
 	alarmDate.setTime(Date.parse(timeStamp));	  	
     /*include the days to advance the alarm date*/
@@ -49,7 +49,7 @@ $(function()
 	if(currentDate > alarmDate)
 	 {
 		/*if the loaded alarm date is older than today, take the time and apply it to today*/
-		currentDate.setHours(alarmDate.getHours(),alarmDate.getMinutes(),00);
+		currentDate.setHours(alarmDate.getHours(),alarmDate.getMinutes());
 		timeStamp = currentDate;
 	 }
 	else
@@ -77,12 +77,12 @@ $(function()
 		hours = (hours < 10 ? "0" : "") + hours;
 	     
 	  // Compose the string for display
-	  var timeString = hours + ":" + minutes + ":" + seconds + " " +format;
+	  var timeString = hours + "&nbsp;&nbsp;:&nbsp;&nbsp;" + minutes + "&nbsp;&nbsp;&nbsp;" +format;
 
-	  $("#hour").text(hours);
-	  $("#min").text(minutes);
-	  $("#sec").text(seconds);
-	  $("#am_pm").text(format);
+	  $("#hour, #hour2").text(hours);
+	  $("#min, #min2").text(minutes);
+	  $("#sec, #sec2").text(seconds);
+	  $("#am_pm, #am_pm2").text(format);
 
 	  return timeString;
 	}
@@ -112,15 +112,18 @@ $(function()
 	/*addAlarm(int)*/
 	$.fn.addAlarmUI = function(alarmId)
 	{
-	   $("#alarmList").append("<div id='alarm"+alarmId+"'><a href='#' id='alarmRemove"+alarmId+"'><img src='images/remove.png' alt='Remove Alarm' border='0'/></a> <span>"+$.fn.makeTimeStr(alarmDate[alarmId],$("#12hourFormat").is(':checked'))+"</span></div>");
+		var lala = $('.setting_rep_select').html();
+		// $("#alarmList").append("<div id='alarm"+alarmId+"'><a href='#' id='alarmRemove"+alarmId+"'><img src='images/remove.png' alt='Remove Alarm' border='0'/></a> <span>"+$.fn.makeTimeStr(alarmDate[alarmId],$("#12hourFormat").is(':checked'))+"</span></div>");
+	   $("#alarmList").append('<div class="timer_log" id="alarm'+alarmId+'"><div class="setting_date"><div class="setting_year">2013</div><div class="setting_months">NOV <span class="orange">19</span></div></div><div class="setting_breaker"></div><div class="setting_date"><div>HOURS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINUTES</div><div class="alarm_date orange"><span>'+$.fn.makeTimeStr(alarmDate[alarmId],$("#12hourFormat").is(':checked'))+'</span></div><ul class="date_rep">' +lala+ '</ul></div><a href="#" id="alarmRemove'+alarmId+'"><div class="setting_off"></div></a><div class="clear"></div></div>');
 	   //bind the remove function to the newly created elements
 	   $("#alarmRemove"+alarmId).bind("click", {index:alarmId}, function(e){
 	   //suppress click action
 	   e.preventDefault();
 	   //call remove alarm
 	   $.fn.removeAlarm(e.data.index); 	 
-		});   		  	
-	   $("#alarmGroup").css("display","inline"); 
+		});
+		  	
+	   $("#alarmGroup").css("display","inline");
 	}
 	
 	/*Handles the updating of the clock and all things done on interval*/
@@ -150,14 +153,18 @@ $(function()
 				 //show the dialog
 				  if($("#dialog").isOpen != true)
 				   {
-				   		$('.screen_face').addClass("pink");
 				        $(".faceicon").addClass('unhappy');
 				        $(".faceicon").removeClass('wiggler');
 				        setTimeout(function(){$(".faceicon").addClass('wigglerrr')},500);
-						$("#dialog").dialog('open');
+				        $(".frame_bg").addClass('frame_bg_alert');
+				        $('.content_info div').addClass('white');
+
+						// $("#dialog").dialog('open');
 				   }
 				  //line through alarms already triggered 
-				 $("#alarm"+i).css('text-decoration','line-through');
+				 $("#alarm"+i).find('.orange').removeClass('orange');
+				 $('#alarm'+i).find('.rep_light').addClass('rep_light_no');
+				 $('#alarm'+i).find('.setting_off').addClass('setting_off_off');
 				 				 
 				 //update already triggered alarm to the next day, so that if they leave the window open the alarm will sound without refresh
 				 alarmDate[i] = $.fn.fixDate(alarmDate[i],1);
@@ -237,6 +244,7 @@ $(function()
 	   {
 	  var tmpDate = alarmDate;
 	  var tmpTone = alarmTone;
+
 	  /*goes through and looks for nulled values and removes them before saving.*/	  
 	  for(i=0;i<tmpDate.length;i++)
 	   {
@@ -304,14 +312,17 @@ $(function()
 		 }
 	});
 	
-	$("#addAlarm").click(function()
+	$(".timer_add_set").click(function()
 	{
+		var item_log = $('.timer_log').length;
+		console.log(item_log);
+		if (item_log < 5) {
 		var timeMod = 0;
 		var hrs = 0;
 		var mins = 0;
 		var formatFlag = $("#12hourFormat").is(':checked');
 		alarmDate[alarmCounter] = new Date();
-			
+		
 		if(formatFlag)
 		{
 		//if pm is selected add 12 to the hour
@@ -322,33 +333,12 @@ $(function()
 		
 		alarmDate[alarmCounter].setHours(hrs,mins,00);	  
 		$("#alarmGroup").css("display","inline");
-		
-
-	   if($("#mp3File option:selected").val() =="none")
-		{
-		   alarmTone[alarmCounter] = null;					
-		}
-	   else if($("#mp3File option:selected").val() =="custom")
-		{
-		  if($("#customMp3File").val().length > 0)
-		   {/*do better validation here later*/
-		     alarmTone[alarmCounter] = $("#customMp3File").val();
-		   }
-          else
-		   {
-		     alarmTone[alarmCounter] = null
-		   }
-		}
-	   else
-		{
-		   alarmTone[alarmCounter] = "http://bruceburge.com/utilities/alarm/mp3/"+$("#mp3File option:selected").val();
-		}
 
 		
 		$.fn.addAlarmUI(alarmCounter);
 		alarmCounter++;
+		}
 	});
-
 
 	/*first calls to start the application*/	
 	$.fn.primer();
@@ -374,9 +364,9 @@ $(function()
     var current_year =cdt.getFullYear();  
     var currentdate = cdt.getDate();
 
-    $('#day').text( currentdate );
-    $('#month').text( month_name ); 
-    $('#day_name').text( day_name );  
+    $('#day, #day2').text( currentdate );
+    $('#month, #month2').text( month_name ); 
+    $('#day_name, #day_name2').text( day_name );  
 
 
 
