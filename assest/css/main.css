@@ -1,0 +1,549 @@
+*{
+	height: auto;
+	width: auto;
+	margin: 0px;
+	padding: 0px;
+}
+#body{
+	background-color: #7ee4db;
+}
+
+.clear{
+	clear: both !important;
+	float: none !important;
+}
+
+.hide{
+	display: none;
+}
+.ui-widget-overlay{
+	display: none;
+}
+/*---------------------Embedding Fonts--------------------*/
+@font-face{
+  font-family:'blanch';
+  src: url('assest/BLANCH_CAP_0.otf');
+  src: local('blanch'), local('blanch'), url('assest/BLANCH_CAP_0.otf') format('truetype');
+}
+@font-face{
+  font-family:'blanch';
+  src: url('assest/BLANCH_CAP_0.otf');
+  src: local('blanch'), local('blanch'), url('assest/BLANCH_CAP_0.otf') format('truetype');
+}
+@import url(http://fonts.googleapis.com/css?family=Rationale);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+
+/*---------------------iphone should have--------------------*/
+
+.iphone_time{
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	height: auto;
+	top: 3px;
+}
+
+.iphone_body{
+	position: absolute;
+	z-index: -1;
+	left: -113px;
+	top: -270px;
+	width: auto;
+	height: auto;
+
+}
+
+/*---------------------iphone content--------------------*/
+
+.iphone_cover{
+	position: absolute;
+	z-index: 9;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	left: 0px;
+	top: 0px;
+}
+
+.screen_face{
+	position: relative;
+	width: 640px;
+	height: 1136px;
+	margin: 0 auto;
+	margin-top: 300px;
+}
+
+.frame{
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	top: 0px;
+	left: 0px;
+}
+
+.frame_bg{
+	background-image: url('../images/color_bg.png');
+	background-repeat: repeat-x;
+	-webkit-transition: 30s ease-in-out;
+	-moz-transition: 30s ease-in-out;
+	-o-transition: 30s ease-in-out;
+}
+
+.white{
+	color: white;
+}
+
+.frame_bg_alert{
+	background-position-y: 100%; 
+}
+
+.pink{
+	background-position-y: 63% !important;
+}
+
+.happy{
+	width: 550px;
+	height: 367px;
+	background-image: url('../images/happy.png');
+}
+
+.unhappy{
+	width: 550px;
+	height: 370px;
+	background-image: url('../images/unhappy.png');
+}
+
+.face{
+	padding-top: 190px;
+}
+
+.faceicon{
+	width: 550px;
+	height: 327px;
+	margin: 0 auto;
+}
+
+.speach2, .speach1{
+	width: 0px;
+	height: 0px;
+	padding-top: 6px;
+	background-image: url('../images/speach.png');
+	background-size: 100% 100%;
+	text-align: center;
+	overflow: hidden;
+	display: none;
+}
+
+.show{
+	-webkit-animation: pop 4s ;
+	-moz-animation: pop 4s ;
+	animation: pop 4s ;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.content_info{
+	position: absolute;
+	width: 100%;
+	height: 275px;
+	margin: 0 auto;
+	bottom: 230px;
+	z-index: 10;
+}
+
+.content_info.shadow{
+	position: absolute;
+	width: 100%;
+	height: 275px;
+	margin: 0 auto;
+	bottom: 230px;
+	z-index: 5;
+}
+
+.content_info div{
+	font-family: 'Rationale', sans-serif;
+	color: #b7ecff;
+	-webkit-filter: blur(2px);
+	-moz-filter: blur(2px);
+	-o-filter: blur(2px);
+	-ms-filter: blur(2px);
+	filter: blur(2px);
+	-webkit-transition: 30s ease-in-out;
+	-moz-transition: 30s ease-in-out;
+	-o-transition: 30s ease-in-out;
+}
+
+.content_info.shadow div{
+	font-family: 'Rationale', sans-serif;
+	color: white;
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(10px);
+}
+
+.content_info .time{
+	font-size: 135px;
+	line-height: 110px;
+	margin: -5px 0 20px 0;
+	display: inline-block;
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-o-filter: blur(3px);
+	-ms-filter: blur(3px);
+	filter: blur(3px);
+}
+
+.content_info.shadow .time{
+	font-size: 135px;
+	line-height: 110px;
+	margin: -5px 0 20px 0;
+	display: inline-block;
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+}
+
+.time_placeholder{
+	width: 100%;
+	text-align: center;
+}
+
+.time_detail{
+	font-size: 50px;
+	line-height: 50px;
+}
+.time_detail:first-child{
+	font-size: 60px;
+	line-height: 60px;
+}
+.detail_holder{
+	display: inline-block;
+	padding: 5px 0 0 5px;
+}
+.day_holder{
+	text-align: center;
+	margin-top: 100px;
+}
+.date_holder{
+	margin-top: 9px;
+	text-align: center;
+}
+
+.date{
+	font-size: 60px;
+	line-height: 50px;
+	padding-top: 10px;
+	display: inline-block;
+	text-transform:uppercase;
+	border-top: 1px solid #a9f7e2;
+}
+
+.day_nameing{
+	font-size: 55px;
+	line-height: 55px;
+	padding-bottom: 5px;
+	text-transform:uppercase;
+}
+
+/*--------------------Time Setting--------------------*/
+
+.orange{
+	color: #fb2d2d;
+}
+
+.timer_holder{
+	width: 100%;
+	color: #616161;
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-family:'Lato', sans-serif;
+}
+
+.time_header{
+	width: 100%;
+	height: 68px;
+	cursor: pointer;
+	background-image: url('../images/timer_head.png');
+}
+
+.timer_bg{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	background-image: url('../images/timer_bg.png');
+}
+
+.time_devider{
+	width: 100%;
+	height: 28px;
+	background-image: url('../images/timer_breaker.png');
+}
+
+.overfow_none{
+	overflow: hidden;
+	position: absolute;
+	bottom: 0px
+}
+
+.setting_date, .setting_breaker, .setting_date, .setting_off{
+	float: left;
+}
+
+.timer_log{
+	padding: 20px 42px;
+}
+
+.timer_log:first-child{
+	padding-top: 40px;
+}
+
+.timer_log:last-child{
+	padding-bottom: 40px;
+}
+
+.setting_year{
+	margin-top: 12px;
+}
+
+.setting_breaker{
+	background-image: url('../images/timer_space.png');
+	width: 18px;
+	height: 70px;
+	margin: 10px 15px 0 30px;
+}
+
+.setting_months{
+	font-size: 25px;
+}
+
+.alarm_date{
+	font-size: 35px;
+	line-height: 32px;
+	font-weight: 400;
+}
+
+.date_rep{
+	margin-top: 5px;
+}
+
+.date_rep li{
+	float: left;
+	margin: 0 5px;
+	list-style: none;
+	display: none;
+}
+.date_rep li.rep-day.active{
+	color: #fb2d2d; 
+}
+
+.date_rep li.rep_light{
+	width: 36px;
+	height: 19px;
+	margin-top: 3px;
+	background-image: url('../images/timer_rep.png');
+}
+.date_rep li.rep_light_no{
+	width: 66px;
+	height: 19px;
+	margin-top: 3px;
+	background-image: url('../images/timer_norep.png');
+}
+
+.setting_log{
+	padding: 30px 40px 40px 40px;
+}
+
+.setting_off{
+	width: 116px;
+	height: 54px;
+	float: right;
+	margin: 15px 0 0 30px;
+	background-image: url('../images/timer_on.png');
+}
+.setting_off_off{
+	background-image: url('../images/timer_off.png');
+}
+
+.timer_add{
+	width: 116px;
+	height: 54px;
+	float: right;
+	cursor: pointer;
+	margin: 15px 0 0 30px;
+	background-image: url('../images/timer_add.png');
+}
+
+.am_pm{
+	margin-left: 10px;
+}
+
+select{
+	border:0;
+    background:none;
+    padding: 7px;
+    -webkit-appearance: none;
+}
+
+.select_dot{
+	float: left;
+	margin: 0 12px;
+	font-size: 35px;
+	font-weight: 400;
+	line-height: 32px;
+}
+
+.select_hide{
+	float: left;
+	width: 70px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.setting_option select{
+	border: 0px;
+	width: 104px;
+	font-size: 35px;
+	font-weight: 400;
+	line-height: 32px;
+	text-align: center;
+	background-color: #bfbfbf;
+}
+.select_pads{
+	padding: 7px 0 7px 13px;
+}
+
+.setting_rep_select li{
+	float: left;
+	list-style: none;
+}
+
+.setting_name{
+	margin-right: 90px;
+}
+
+.setting_break{
+	margin: 0 20.5px;
+}
+.rep-day{
+	cursor: pointer;
+	display: block !important;
+}
+.rep-day.active{
+	color: #fb2d2d; 
+}
+
+/*---------------------Blur effect--------------------*/
+
+.blurme{
+	-webkit-filter: blur(20px);
+	-moz-filter: blur(20px);
+	-o-filter: blur(20px);
+	-ms-filter: blur(20px);
+	filter: blur(20px);
+}
+
+.blurme2{
+
+	-webkit-animation: blurme 1.3s forwards;
+	-moz-animation: blurme 1.3s forwards;
+	animation: blurme 1.3s forwards;
+
+}
+
+@-webkit-keyframes blurme {
+	0% {
+		-webkit-filter: blur(20px);
+		-moz-filter: blur(20px);
+		-o-filter: blur(20px);
+		-ms-filter: blur(20px);
+		filter: blur(20px);
+	}
+	100% {
+		-webkit-filter: blur(0px);
+		-moz-filter: blur(0px);
+		-o-filter: blur(0px);
+		-ms-filter: blur(0px);
+		filter: blur(0px);
+	}
+}
+
+@-moz-keyframes blurme {
+	0% {
+		-webkit-filter: blur(20px);
+		-moz-filter: blur(20px);
+		-o-filter: blur(20px);
+		-ms-filter: blur(20px);
+		filter: blur(20px);
+	}
+	100% {
+		-webkit-filter: blur(0px);
+		-moz-filter: blur(0px);
+		-o-filter: blur(0px);
+		-ms-filter: blur(0px);
+		filter: blur(0px);
+	}
+}
+
+@keyframes blurme {
+	0% {
+		-webkit-filter: blur(20px);
+		-moz-filter: blur(20px);
+		-o-filter: blur(20px);
+		-ms-filter: blur(20px);
+		filter: blur(20px);
+	}
+	100% {
+		-webkit-filter: blur(0px);
+		-moz-filter: blur(0px);
+		-o-filter: blur(0px);
+		-ms-filter: blur(0px);
+		filter: blur(0px);
+	}
+}
+
+/*-----------------Wiggle Animation--------------------*/
+
+.wigglerrr {
+	-webkit-animation: wiggle 0.1s infinite !important;
+	-moz-animation: wiggle 0.1s infinite !important;
+	animation: wiggle 0.1s infinite !important;
+}
+
+.wiggler {
+	-webkit-animation: wiggle 1s infinite;
+	-moz-animation: wiggle 1s infinite;
+	animation: wiggle 1s infinite;
+}
+
+@-webkit-keyframes wiggle {
+	0% {-webkit-transform:rotate(4deg);}
+	50% {-webkit-transform:rotate(-4deg);}
+	100% {-webkit-transform:rotate(4deg);}
+}
+ 
+@-moz-keyframes wiggle {
+	0% {-moz-transform:rotate(4deg);}
+	50% {-moz-transform:rotate(-4deg);}
+	100% {-moz-transform:rotate(4deg);}
+}
+
+@keyframes wiggle {
+	0% {transform:rotate(4deg);}
+	50% {transform:rotate(-4deg);}
+	100% {transform:rotate(4deg);}
+}
+
+
+
+
+
+
+
+
