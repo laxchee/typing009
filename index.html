@@ -27,179 +27,220 @@
     </head>
 
     <body id="body" >
-    	
-		<div class="screen_face frame_bg">
+    	<div class="content-left">
+    		<div class="logo"><img class="invisible" src="assest/images/logo.png"><img class="invisible logo-shadow opic" src="assest/images/logoshadow.png"></div>
+    		<div class="stop"><img class="clockimage" src="assest/images/clock-btn.png"></div>
+    		<div class="pause"></div>
+    	</div>
+    	<div class="content-right">
+    		<div class="text"><img src="assest/images/viewsite.png"></div>
+    		<a href="indexapp.html"><div class="viewsitebutton"></div></a>
+    		<div class="support MT129"><img src="assest/images/support.png"></div>
+    		<div class="support support-jump"><img src="assest/images/support-arrow.png"></div>
+    	</div>
+    	<div class="phone-center">
+			<div class="screen_face frame_bg">
+				<div class="holder blurme">
+					
+					<img src="assest/images/iphone_timer.png" class="iphone_time">
 
-			<div class="holder blurme">
-				
-				<img src="assest/images/iphone_timer.png" class="iphone_time">
-
-		    	<div class="face">
-		    		<div class="faceicon happy wiggler"></div>
-				</div>
-
-				<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				       Clock Time
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-
-				<div id="clockFrame" class="content_info">
-
-					<div class="clear day_holder">
-						<div id="day_name" class="day_nameing"></div>
+			    	<div class="face">
+			    		<div class="faceicon happy wiggler"></div>
 					</div>
 
-					<div class="time_placeholder">
-						<div id="hour" class="time"></div>
-						<div class="time">:</div>
-						<div id="min" class="time"></div>
+					<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					       Clock Time
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
 
-						<div class="detail_holder">
-							<div id="sec" class="time_detail"></div>
-							<div id="am_pm" class="time_detail"></div>
+					<div id="clockFrame" class="content_info">
+
+						<div class="clear day_holder">
+							<div id="day_name" class="day_nameing"></div>
 						</div>
-					</div>
 
-					<div class="clear date_holder">
-						<div id="day" class="date"></div>
-						<div id="month" class="date"></div>
-					</div>
+						<div class="time_placeholder">
+							<div id="hour" class="time"></div>
+							<div class="time">:</div>
+							<div id="min" class="time"></div>
 
-				</div>
-
-				<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-				       Clock Time
-				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-
-				<div id="clockFrame" class="content_info shadow">
-
-					<div class="clear day_holder">
-						<div id="day_name2" class="day_nameing"></div>
-					</div>
-
-					<div class="time_placeholder">
-						<div id="hour2" class="time"></div>
-						<div class="time">:</div>
-						<div id="min2" class="time"></div>
-
-						<div class="detail_holder">
-							<div id="sec2" class="time_detail"></div>
-							<div id="am_pm2" class="time_detail"></div>
-						</div>
-					</div>
-
-					<div class="clear date_holder">
-						<div id="day2" class="date"></div>
-						<div id="month2" class="date"></div>
-					</div>
-
-				</div>
-				
-			</div>
-			
-			<img src="assest/images/app_cover.png" class="iphone_cover">
-			<img src="assest/images/iphone5.png" class="iphone_body">
-
-			<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			       Weather Background
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-
-			<!-- <iframe class="frame" src="bgcolor.html" sandbox="allow-same-origin allow-scripts allow-top-navigation" ></iframe> -->
-
-			<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-			         Timer Setting
-			AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
-			<div class="overfow_none">
-			<div class="timer_holder">
-				<div class="time_header"></div>
-				<div id="alarmList" class="time_alarm timer_bg">
-
-				</div>
-				<div class="time_devider"></div>
-				<div class="time_setting timer_bg">
-					<div class="setting_log">
-						<div class="setting_date">
-							<div class="setting_year">SET YOUR</div>
-							<div class="setting_months orange">
-								ALARM
-							</div>
-						</div>
-						<div class="setting_breaker"></div>
-						<div class="setting_date">
-							<div>HOURS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINUTES</div>
-							<div class="select_date orange">
-								<div id="standardFormat" class="setting_option orange">
-									<div class="select_hide">
-										<select name="hourtrue" class="orange select_pads">
-											<option value="0" >12</option>	
-											<option value="1" >01</option>
-											<option value="2" >02</option>
-											<option value="3" >03</option>
-											<option value="4" >04</option>
-											<option value="5" >05</option>
-											<option value="6" >06</option>
-											<option value="7" >07</option>
-											<option value="8" >08</option>
-											<option value="9" >09</option>
-											<option value="10" >10</option>
-											<option value="10" >11</option>
-										</select>
-									</div>
-
-									<div class="select_dot">
-									:
-									</div>
-
-									<div class="select_hide">
-										<select name="minutetrue" class="orange select_pads">
-											<option value="0" >00</option>
-											<option value="5" >05</option>
-											<option value="10" >10</option>
-											<option value="15" >15</option>
-											<option value="20" >20</option>
-											<option value="25" >25</option>
-											<option value="30" >30</option>
-											<option value="35" >35</option>
-											<option value="40" >40</option>
-											<option value="45" >45</option>
-											<option value="50" >50</option>
-											<option value="55" >55</option>
-										</select>
-									</div>
-									
-									<div class="select_hide am_pm">
-										<select name="amPm" class="orange">
-											<option value="0">AM</option>
-											<option value="1">PM</option>
-										</select>
-									</div>
-									
-								</div>		  
+							<div class="detail_holder">
+								<div id="sec" class="time_detail"></div>
+								<div id="am_pm" class="time_detail"></div>
 							</div>
 						</div>
 
-						<div id="addAlarm" class="timer_add timer_add_set"></div>
+						<div class="clear date_holder">
+							<div id="day" class="date"></div>
+							<div id="month" class="date"></div>
+						</div>
 
-						<div class="clear"></div>
-						<ul class="setting_rep_select">
-							<li  class="setting_name">repeat</li>
-							<li class="rep-day" data-true= '0'>S</li>
-							<li class="setting_break">|</li>
-							<li class="rep-day" data-true= '0'>M</li>
-							<li class="setting_break">|</li>
-							<li class="rep-day" data-true= '0'>T</li>
-							<li class="setting_break">|</li>
-							<li class="rep-day" data-true= '0'>W</li>
-							<li class="setting_break">|</li>
-							<li class="rep-day" data-true= '0'>T</li>
-							<li class="setting_break">|</li>
-							<li class="rep-day" data-true= '0'>F</li>
-							<li class="setting_break">|</li>
-							<li class="rep-day" data-true= '0'>S</li>
-							<li class="clear"></li>
-						</ul>
+					</div>
+
+					<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+					       Clock Time
+					AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+
+					<div id="clockFrame" class="content_info shadow">
+
+						<div class="clear day_holder">
+							<div id="day_name2" class="day_nameing"></div>
+						</div>
+
+						<div class="time_placeholder">
+							<div id="hour2" class="time"></div>
+							<div class="time">:</div>
+							<div id="min2" class="time"></div>
+
+							<div class="detail_holder">
+								<div id="sec2" class="time_detail"></div>
+								<div id="am_pm2" class="time_detail"></div>
+							</div>
+						</div>
+
+						<div class="clear date_holder">
+							<div id="day2" class="date"></div>
+							<div id="month2" class="date"></div>
+						</div>
+
+					</div>
+					
+				</div>
+				
+				<img src="assest/images/app_cover.png" class="iphone_cover">
+				<img src="assest/images/iphone5.png" class="iphone_body">
+
+				<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				       Weather Background
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+
+				<!-- <iframe class="frame" src="bgcolor.html" sandbox="allow-same-origin allow-scripts allow-top-navigation" ></iframe> -->
+
+				<!--AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+				         Timer Setting
+				AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
+				<div class="overfow_none">
+				<div class="timer_holder">
+					<div class="time_header"></div>
+					<div id="alarmList" class="time_alarm timer_bg">
+
+					</div>
+					<div class="time_devider"></div>
+					<div class="time_setting timer_bg">
+						<div class="setting_log">
+							<div class="setting_date">
+								<div class="setting_year">SET YOUR</div>
+								<div class="setting_months orange">
+									ALARM
+								</div>
+							</div>
+							<div class="setting_breaker"></div>
+							<div class="setting_date">
+								<div>HOURS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINUTES</div>
+								<div class="select_date orange">
+									<div id="standardFormat" class="setting_option orange">
+										<div class="select_hide">
+											<select name="hourtrue" class="orange select_pads">
+												<option value="0" >12</option>	
+												<option value="1" >01</option>
+												<option value="2" >02</option>
+												<option value="3" >03</option>
+												<option value="4" >04</option>
+												<option value="5" >05</option>
+												<option value="6" >06</option>
+												<option value="7" >07</option>
+												<option value="8" >08</option>
+												<option value="9" >09</option>
+												<option value="10" >10</option>
+												<option value="10" >11</option>
+											</select>
+										</div>
+
+										<div class="select_dot">
+										:
+										</div>
+
+										<div class="select_hide">
+											<select name="minutetrue" class="orange select_pads">
+												<option value="0" >00</option>
+												<option value="1" >01</option>
+												<option value="2" >02</option>
+												<option value="3" >03</option>
+												<option value="4" >04</option>
+												<option value="5" >05</option>
+												<option value="6" >06</option>
+												<option value="7" >07</option>
+												<option value="8" >08</option>
+												<option value="9" >09</option>
+												<option value="10" >10</option>
+												<option value="11" >11</option>
+												<option value="12" >12</option>
+												<option value="13" >13</option>
+												<option value="14" >14</option>
+												<option value="15" >15</option>
+												<option value="16" >16</option>
+												<option value="17" >17</option>
+												<option value="18" >18</option>
+												<option value="19" >19</option>
+												<option value="20" >20</option>
+												<option value="21" >21</option>
+												<option value="22" >22</option>
+												<option value="23" >23</option>
+												<option value="24" >24</option>
+												<option value="25" >25</option>
+												<option value="26" >26</option>
+												<option value="27" >27</option>
+												<option value="28" >28</option>
+												<option value="29" >29</option>
+												<option value="30" >30</option>
+												<option value="31" >31</option>
+												<option value="32" >32</option>
+												<option value="33" >33</option>
+												<option value="34" >34</option>
+												<option value="35" >35</option>
+												<option value="36" >36</option>
+												<option value="37" >37</option>
+												<option value="38" >38</option>
+												<option value="39" >39</option>
+												<option value="30" >30</option>
+											
+											</select>
+										</div>
+										
+										<div class="select_hide am_pm">
+											<select name="amPm" class="orange">
+												<option value="0">AM</option>
+												<option value="1">PM</option>
+											</select>
+										</div>
+										
+									</div>		  
+								</div>
+							</div>
+
+							<div id="addAlarm" class="timer_add timer_add_set"></div>
+
+							<div class="clear"></div>
+							<ul class="setting_rep_select">
+								<li  class="setting_name">repeat</li>
+								<li class="rep-day" data-true= '0'>S</li>
+								<li class="setting_break">|</li>
+								<li class="rep-day" data-true= '0'>M</li>
+								<li class="setting_break">|</li>
+								<li class="rep-day" data-true= '0'>T</li>
+								<li class="setting_break">|</li>
+								<li class="rep-day" data-true= '0'>W</li>
+								<li class="setting_break">|</li>
+								<li class="rep-day" data-true= '0'>T</li>
+								<li class="setting_break">|</li>
+								<li class="rep-day" data-true= '0'>F</li>
+								<li class="setting_break">|</li>
+								<li class="rep-day" data-true= '0'>S</li>
+								<li class="clear"></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
+				</div>
 			</div>
 		</div>
 

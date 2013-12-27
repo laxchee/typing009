@@ -112,9 +112,9 @@ $(function()
 	/*addAlarm(int)*/
 	$.fn.addAlarmUI = function(alarmId)
 	{
-		var lala = $('.setting_rep_select').html();
+		var repDates = $('.setting_rep_select').html();
 		// $("#alarmList").append("<div id='alarm"+alarmId+"'><a href='#' id='alarmRemove"+alarmId+"'><img src='images/remove.png' alt='Remove Alarm' border='0'/></a> <span>"+$.fn.makeTimeStr(alarmDate[alarmId],$("#12hourFormat").is(':checked'))+"</span></div>");
-	   $("#alarmList").append('<div class="timer_log" id="alarm'+alarmId+'"><div class="setting_date"><div class="setting_year">2013</div><div class="setting_months">NOV <span class="orange">19</span></div></div><div class="setting_breaker"></div><div class="setting_date"><div>HOURS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINUTES</div><div class="alarm_date orange"><span>'+$.fn.makeTimeStr(alarmDate[alarmId],$("#12hourFormat").is(':checked'))+'</span></div><ul class="date_rep">' +lala+ '</ul></div><a href="#" id="alarmRemove'+alarmId+'"><div class="setting_off"></div></a><div class="clear"></div></div>');
+	   $("#alarmList").append('<div class="timer_log" id="alarm'+alarmId+'"><div class="setting_date"><div class="setting_year">'+current_year+'</div><div class="setting_months">'+month_name_short+' <span class="orange">'+currentdate+'</span></div></div><div class="setting_breaker"></div><div class="setting_date"><div>HOURS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINUTES</div><div class="alarm_date orange"><span>'+$.fn.makeTimeStr(alarmDate[alarmId],$("#12hourFormat").is(':checked'))+'</span></div><ul class="date_rep">' +repDates+ '</ul></div><a href="#" id="alarmRemove'+alarmId+'"><div class="setting_off"></div></a><div class="clear"></div></div>');
 	   //bind the remove function to the newly created elements
 	   $("#alarmRemove"+alarmId).bind("click", {index:alarmId}, function(e){
 	   //suppress click action
@@ -161,10 +161,8 @@ $(function()
 
 						// $("#dialog").dialog('open');
 				   }
-				  //line through alarms already triggered 
-				 $("#alarm"+i).find('.orange').removeClass('orange');
-				 $('#alarm'+i).find('.rep_light').addClass('rep_light_no');
-				 $('#alarm'+i).find('.setting_off').addClass('setting_off_off');
+				  //line through alarms already triggered
+					$('#alarm'+i).addClass('used');
 				 				 
 				 //update already triggered alarm to the next day, so that if they leave the window open the alarm will sound without refresh
 				 alarmDate[i] = $.fn.fixDate(alarmDate[i],1);
@@ -315,7 +313,6 @@ $(function()
 	$(".timer_add_set").click(function()
 	{
 		var item_log = $('.timer_log').length;
-		console.log(item_log);
 		if (item_log < 5) {
 		var timeMod = 0;
 		var hrs = 0;
@@ -355,7 +352,10 @@ $(function()
     var current_month = cdt.getMonth();  
     var monthNames = ["January", "February", "March", "April", "May", "June",  
     "July", "August", "September", "October", "November", "December"];
+    var monthNamesShort = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",  
+    "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     var month_name = monthNames[current_month]; 
+    var month_name_short = monthNamesShort[current_month]; 
 
     var daynumber = cdt.getDay();
     var dayNames = ["sunday", "Monday", "Tuesday", "wednesday", "thursday", "friday", "saturday"];
@@ -366,7 +366,15 @@ $(function()
 
     $('#day, #day2').text( currentdate );
     $('#month, #month2').text( month_name ); 
-    $('#day_name, #day_name2').text( day_name );  
+    $('#day_name, #day_name2').text( day_name );
+
+// --------------------------------------------------------
+// Kill Alarm
+// --------------------------------------------------------
+
+    $('.Nana').click(function(){
+
+    });
 
 
 

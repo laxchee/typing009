@@ -6,6 +6,9 @@
 }
 #body{
 	background-color: #7ee4db;
+	background-image: url('../images/background_gradient.png');
+	background-repeat: repeat-x;
+	background-position: 0 466px;
 }
 
 .clear{
@@ -19,6 +22,10 @@
 .ui-widget-overlay{
 	display: none;
 }
+.invisible{
+	pointer-events: none;
+}
+
 /*---------------------Embedding Fonts--------------------*/
 @font-face{
   font-family:'blanch';
@@ -47,15 +54,105 @@
 .iphone_body{
 	position: absolute;
 	z-index: -1;
-	left: -113px;
-	top: -270px;
+	left: -57px;
+	top: -142px;
 	width: auto;
 	height: auto;
 
 }
 
-/*---------------------iphone content--------------------*/
+/*---------------------Web should have--------------------*/
+.phone-center{
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+}
+.iphone{
+	margin-top: 0px !important;
+}
+.content-left{
+	width: 254px;
+	position: absolute;
+	top: 177px;
+	left: 90px;
+	z-index: 10;
+}
+.content-left div img. .content-right div img{
+	width: 100%;
+}
+.logo{
+	height: 226px;
+	width: 254px;
+	position: relative;
+}
+.logo-shadow{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+}
+.logo img{
+	width: auto !important;
+	margin-left: -115px;
+}
+.stop, .pause{
+	height: 63px;
+	cursor: pointer;
+	width: 254px;
+	height: 63px;
+	position: relative;
+}
+.stop{
+	background-image: url('../images/stop.png');
+	background-repeat: no-repeat;
+}
+.pause{
+	background-image: url('../images/pause.png');
+	background-repeat: no-repeat;
+}
 
+.clockimage{
+	position: absolute;
+	right: 14px;
+	top: 13px;
+	z-index: 10;
+}
+.stop:hover .clockimage {
+	-webkit-animation: shake 0.5s infinite;
+	-moz-animation: shake 0.5s infinite;
+	animation: shake 0.5s infinite;
+}
+
+.content-right{
+	position: absolute;
+	top: 403px;
+	right: 90px;
+	width: 254px;
+	z-index: 10;
+}
+.viewsitebutton{
+	width: 254px;
+	height: 65px;
+	overflow: hidden;
+	background-image:  url('../images/view-btn.png');
+	background-repeat: no-repeat;
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+}
+.viewsitebutton:hover{
+	background-position: 0px -65px;
+}
+.support{
+	width: 100%;
+	text-align: center;
+}
+.MT129{
+	margin-top: 129px;
+	margin-bottom: -15px;
+}
+
+/*---------------------iphone content--------------------*/
 .iphone_cover{
 	position: absolute;
 	z-index: 9;
@@ -68,10 +165,10 @@
 
 .screen_face{
 	position: relative;
-	width: 640px;
-	height: 1136px;
+	width: 320px;
+	height: 568px;
 	margin: 0 auto;
-	margin-top: 300px;
+	margin-top: 200px;
 }
 
 .frame{
@@ -87,9 +184,9 @@
 .frame_bg{
 	background-image: url('../images/color_bg.png');
 	background-repeat: repeat-x;
-	-webkit-transition: 30s ease-in-out;
-	-moz-transition: 30s ease-in-out;
-	-o-transition: 30s ease-in-out;
+	-webkit-transition: 20s ease-in-out;
+	-moz-transition: 20s ease-in-out;
+	-o-transition: 20s ease-in-out;
 }
 
 .white{
@@ -105,24 +202,24 @@
 }
 
 .happy{
-	width: 550px;
-	height: 367px;
+	width: 275px;
+	height: 164px;
 	background-image: url('../images/happy.png');
 }
 
 .unhappy{
-	width: 550px;
-	height: 370px;
+	width: 275px;
+	height: 164px;
 	background-image: url('../images/unhappy.png');
 }
 
 .face{
-	padding-top: 190px;
+	padding-top: 100px;
 }
 
 .faceicon{
-	width: 550px;
-	height: 327px;
+	width: 275px;
+	height: 164px;
 	margin: 0 auto;
 }
 
@@ -147,29 +244,29 @@
 .content_info{
 	position: absolute;
 	width: 100%;
-	height: 275px;
+	height: 175px;
 	margin: 0 auto;
-	bottom: 230px;
+	bottom: 145px;
 	z-index: 10;
 }
 
 .content_info.shadow{
 	position: absolute;
 	width: 100%;
-	height: 275px;
+	height: 175px;
 	margin: 0 auto;
-	bottom: 230px;
+	bottom: 145px;
 	z-index: 5;
 }
 
 .content_info div{
 	font-family: 'Rationale', sans-serif;
 	color: #b7ecff;
-	-webkit-filter: blur(2px);
-	-moz-filter: blur(2px);
-	-o-filter: blur(2px);
-	-ms-filter: blur(2px);
-	filter: blur(2px);
+	-webkit-filter: blur(1px);
+	-moz-filter: blur(1px);
+	-o-filter: blur(1px);
+	-ms-filter: blur(1px);
+	filter: blur(1px);
 	-webkit-transition: 30s ease-in-out;
 	-moz-transition: 30s ease-in-out;
 	-o-transition: 30s ease-in-out;
@@ -178,28 +275,28 @@
 .content_info.shadow div{
 	font-family: 'Rationale', sans-serif;
 	color: white;
-	-webkit-filter: blur(10px);
-	-moz-filter: blur(10px);
-	-o-filter: blur(10px);
-	-ms-filter: blur(10px);
-	filter: blur(10px);
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
 }
 
 .content_info .time{
-	font-size: 135px;
-	line-height: 110px;
+	font-size: 80px;
+	line-height: 50px;
 	margin: -5px 0 20px 0;
 	display: inline-block;
-	-webkit-filter: blur(3px);
-	-moz-filter: blur(3px);
-	-o-filter: blur(3px);
-	-ms-filter: blur(3px);
-	filter: blur(3px);
+	-webkit-filter: blur(1px);
+	-moz-filter: blur(1px);
+	-o-filter: blur(1px);
+	-ms-filter: blur(1px);
+	filter: blur(1px);
 }
 
 .content_info.shadow .time{
-	font-size: 135px;
-	line-height: 110px;
+	font-size: 80px;
+	line-height: 50px;
 	margin: -5px 0 20px 0;
 	display: inline-block;
 	-webkit-filter: blur(5px);
@@ -215,12 +312,12 @@
 }
 
 .time_detail{
-	font-size: 50px;
-	line-height: 50px;
+	font-size: 28px;
+	line-height: 28px;
 }
 .time_detail:first-child{
-	font-size: 60px;
-	line-height: 60px;
+	font-size: 32px;
+	line-height: 32px;
 }
 .detail_holder{
 	display: inline-block;
@@ -231,22 +328,22 @@
 	margin-top: 100px;
 }
 .date_holder{
-	margin-top: 9px;
+	margin-top: 3px;
 	text-align: center;
 }
 
 .date{
-	font-size: 60px;
-	line-height: 50px;
-	padding-top: 10px;
+	font-size: 28px;
+	line-height: 28px;
+	padding-top: 3px;
 	display: inline-block;
 	text-transform:uppercase;
 	border-top: 1px solid #a9f7e2;
 }
 
 .day_nameing{
-	font-size: 55px;
-	line-height: 55px;
+	font-size: 28px;
+	line-height: 28px;
 	padding-bottom: 5px;
 	text-transform:uppercase;
 }
@@ -260,7 +357,7 @@
 .timer_holder{
 	width: 100%;
 	color: #616161;
-	font-size: 20px;
+	font-size: 10px;
 	font-weight: bold;
 	text-transform: uppercase;
 	font-family:'Lato', sans-serif;
@@ -268,7 +365,7 @@
 
 .time_header{
 	width: 100%;
-	height: 68px;
+	height: 33px;
 	cursor: pointer;
 	background-image: url('../images/timer_head.png');
 }
@@ -282,50 +379,48 @@
 
 .time_devider{
 	width: 100%;
-	height: 28px;
+	height: 13px;
 	background-image: url('../images/timer_breaker.png');
 }
 
 .overfow_none{
 	overflow: hidden;
 	position: absolute;
-	bottom: 0px
+	bottom: 0px;
+	width: 100%;
 }
 
 .setting_date, .setting_breaker, .setting_date, .setting_off{
 	float: left;
 }
 
+
 .timer_log{
-	padding: 20px 42px;
-}
-
-.timer_log:first-child{
-	padding-top: 40px;
-}
-
-.timer_log:last-child{
-	padding-bottom: 40px;
+	padding: 10px 20px;
 }
 
 .setting_year{
-	margin-top: 12px;
+	margin-top: 4px;
+}
+
+.setting_date{
+	margin-top: 4px;
 }
 
 .setting_breaker{
 	background-image: url('../images/timer_space.png');
-	width: 18px;
-	height: 70px;
-	margin: 10px 15px 0 30px;
+	width: 15px;
+	height: 50px;
+	margin-left: 9px;
 }
 
 .setting_months{
-	font-size: 25px;
+	font-size: 17px;
 }
 
 .alarm_date{
-	font-size: 35px;
-	line-height: 32px;
+	font-size: 20px;
+	line-height: 20px;
 	font-weight: 400;
 }
 
@@ -357,14 +452,14 @@
 }
 
 .setting_log{
-	padding: 30px 40px 40px 40px;
+	padding: 10px 20px 20px 20px;
 }
 
 .setting_off{
-	width: 116px;
-	height: 54px;
+	width: 58px;
+	height: 27px;
 	float: right;
-	margin: 15px 0 0 30px;
+	margin: 15px 0 0 15px;
 	background-image: url('../images/timer_on.png');
 }
 .setting_off_off{
@@ -372,11 +467,11 @@
 }
 
 .timer_add{
-	width: 116px;
-	height: 54px;
+	width: 58px;
+	height: 27px;
 	float: right;
 	cursor: pointer;
-	margin: 15px 0 0 30px;
+	margin: 15px 0 0 0;
 	background-image: url('../images/timer_add.png');
 }
 
@@ -387,36 +482,36 @@
 select{
 	border:0;
     background:none;
-    padding: 7px;
+    /*padding: 7px;*/
     -webkit-appearance: none;
 }
 
 .select_dot{
 	float: left;
-	margin: 0 12px;
-	font-size: 35px;
+	margin: 0 3px;
+	font-size: 18px;
 	font-weight: 400;
-	line-height: 32px;
+	line-height: 25px;
 }
 
 .select_hide{
 	float: left;
-	width: 70px;
+	width: 35px;
 	overflow: hidden;
 	text-align: center;
 }
 
 .setting_option select{
 	border: 0px;
-	width: 104px;
-	font-size: 35px;
+	width: 35px;
+	font-size: 18px;
 	font-weight: 400;
-	line-height: 32px;
+	line-height: 25px;
 	text-align: center;
 	background-color: #bfbfbf;
 }
 .select_pads{
-	padding: 7px 0 7px 13px;
+	padding: 0 0 0 2px;
 }
 
 .setting_rep_select li{
@@ -425,11 +520,11 @@ select{
 }
 
 .setting_name{
-	margin-right: 90px;
+	margin-right: 48px;
 }
 
 .setting_break{
-	margin: 0 20.5px;
+	margin: 0 10px;
 }
 .rep-day{
 	cursor: pointer;
@@ -539,6 +634,121 @@ select{
 	50% {transform:rotate(-4deg);}
 	100% {transform:rotate(4deg);}
 }
+
+/*-----------------support Animation--------------------*/
+
+.support-jump {
+	-webkit-animation: jump 6s infinite;
+	-moz-animation: jump 6s infinite;
+	animation: jump 6s infinite;
+}
+
+@-webkit-keyframes jump {
+	0% {margin-top: 0px;}
+	2% {margin-top: -10px;}
+	5% {margin-top: 10px;}
+	10% {margin-top: 0px;}
+	100% {margin-top: 0px;}
+}
+ 
+@-moz-keyframes jump {
+	0% {margin-top: 0px;}
+	2% {margin-top: -10px;}
+	5% {margin-top: 10px;}
+	10% {margin-top: 0px;}
+	100% {margin-top: 0px;}
+}
+
+@keyframes jump {
+	0% {margin-top: 0px;}
+	2% {margin-top: -10px;}
+	5% {margin-top: 10px;}
+	10% {margin-top: 0px;}
+	100% {margin-top: 0px;}
+}
+
+/*-----------------Clock Shake Animation--------------------*/
+
+.shake {
+	-webkit-animation: shake 0.8s infinite;
+	-moz-animation: shake 0.8s infinite;
+	animation: shake 0.8s infinite;
+}
+
+@-webkit-keyframes shake {
+	0% {top: 13px;}
+	25% {top: -13px;}
+	75% {top: 35px;}
+	100% {top: 12px;}
+}
+ 
+@-moz-keyframes shake {
+	0% {top: 13px;}
+	25% {top: -13px;}
+	75% {top: 35px;}
+	100% {top: 12px;}
+}
+
+@keyframes shake {
+	0% {top: 13px;}
+	25% {top: -13px;}
+	75% {top: 35px;}
+	100% {top: 12px;}
+}
+
+/*-----------------opic Shake Animation--------------------*/
+
+.opic {
+	-webkit-animation: opic 15s infinite;
+	-moz-animation: opic 15s infinite;
+	animation: opic 15s infinite;
+}
+
+@-webkit-keyframes opic {
+	0% {opacity: 1;}
+	60% {opacity: 1;}
+	61% {opacity: 0;}
+	62% {opacity: 1;}
+	80% {opacity: 1;}
+	81% {opacity: 0;}
+	82% {opacity: 1;}
+	90% {opacity: 1;}
+	91% {opacity: 0;}
+	92% {opacity: 1;}
+	93% {opacity: 0;}
+	100% {opacity: 1;}
+}
+ 
+@-moz-keyframes opic {
+	0% {opacity: 1;}
+	60% {opacity: 1;}
+	61% {opacity: 0;}
+	62% {opacity: 1;}
+	80% {opacity: 1;}
+	81% {opacity: 0;}
+	82% {opacity: 1;}
+	90% {opacity: 1;}
+	91% {opacity: 0;}
+	92% {opacity: 1;}
+	93% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@keyframes opic {
+	0% {opacity: 1;}
+	60% {opacity: 1;}
+	61% {opacity: 0;}
+	62% {opacity: 1;}
+	80% {opacity: 1;}
+	81% {opacity: 0;}
+	82% {opacity: 1;}
+	90% {opacity: 1;}
+	91% {opacity: 0;}
+	92% {opacity: 1;}
+	93% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
 
 
 

@@ -32,12 +32,22 @@ $(document).ready(function(){
     });
     $('.holder').addClass('blurme');
 
+    $('.Nana').click(function(){
+        $(".used").find('.orange').removeClass('orange');
+        $(".used").find('.rep_light').addClass('rep_light_no');
+        $(".used").find('.setting_off').addClass('setting_off_off');
+        $('#body').removeClass("pink");
+        faceicon.removeClass('unhappy');
+        faceicon.removeClass('wigglerrr');
+        $(".frame_bg").removeClass('frame_bg_alert');
+        setTimeout(function(){faceicon.addClass('wiggler')},500);
+    });
 
     var switchs = 1;
-    $('.timer_holder').animate({'marginBottom': '-202px' });
+    $('.timer_holder').animate({'marginBottom': '-106px' });
     $('.time_header').click(function(){
         var time_height = $('.time_alarm').height();
-        var time_total = 0 - time_height - 202 + 'px';
+        var time_total = 0 - time_height - 106 + 'px';
 
         if( switchs == 0 ){
             $('.timer_holder').animate({'marginBottom': time_total });
