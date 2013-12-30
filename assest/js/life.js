@@ -106,5 +106,53 @@ $(document).ready(function(){
         
     });
 
+    // --------------------------------------------------------
+    // White Content drawer
+    // --------------------------------------------------------
+    
+    var objects = $('.content-left, .content-right');
+    var Wtcontent = $('.informationHolder');
+
+    $.fn.WhiteConDown = function(index)
+    {
+        $('.whiteBg').animate({ top : '100%' });
+        objects.fadeTo( "slow", 1 );
+        objects.css({ zIndex : '10' });
+        $('.phone-center').animate({ width : '100%' });
+        Wtcontent.animate({ bottom : '-100%' });
+    }
+
+    $.fn.WhiteConUp = function(index)
+    {
+        $('.whiteBg').animate({ top : '0px' });
+        objects.fadeTo( "slow", 0.3 );
+        objects.css({ zIndex : '-2' });
+        $('.phone-center').animate({ width : '60%' });
+        Wtcontent.animate({ bottom : '30px', top : 'inherit' });
+    }
+
+    var lastScrollTop = 0,
+        min = true;
+    $(window).scroll(function(event){
+       var st = $(this).scrollTop();
+       var stH = $(document).height() - $(window).height()
+
+       if (st == lastScrollTop && !min){
+            $.fn.WhiteConDown();
+            min = true;
+
+       } else if (st == stH && min){
+            $.fn.WhiteConUp();
+            min = false;
+            console.log('up up up');
+       }
+
+    });
+
+    $('.support').click(function(){
+        $.fn.WhiteConUp();
+    });
+
+
 
 });
