@@ -61,6 +61,12 @@ $(function()
 	
 	/*formats a date object to either 24hr or 12hr format based on the second argument*/
 	/*makeTimeStr(Date,bool)*/
+	var hours_time = $("#hour, #hour2"),
+		min_time = $("#min, #min2"),
+		sec_time = $("#sec, #sec2"),
+		am_pm_time = $("#am_pm, #am_pm2"),
+	  	toggle = true ;
+
 	$.fn.makeTimeStr = function(dateObj,format12)
 	{
 	  var hours = dateObj.getHours();
@@ -78,11 +84,14 @@ $(function()
 	     
 	  // Compose the string for display
 	  var timeString = hours + "&nbsp;&nbsp;:&nbsp;&nbsp;" + minutes + "&nbsp;&nbsp;&nbsp;" +format;
+	  sec_time.text(seconds);
 
-	  $("#hour, #hour2").text(hours);
-	  $("#min, #min2").text(minutes);
-	  $("#sec, #sec2").text(seconds);
-	  $("#am_pm, #am_pm2").text(format);
+	  if( sec_time.html() === '00' || toggle ){
+		hours_time.text(hours);
+		min_time.text(minutes);
+		am_pm_time.text(format);
+		toggle = false;
+	  }
 
 	  return timeString;
 	}

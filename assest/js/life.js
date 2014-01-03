@@ -113,7 +113,7 @@ $(document).ready(function(){
     var objects = $('.content-left, .content-right');
     var Wtcontent = $('.informationHolder');
 
-    $.fn.WhiteConDown = function(index)
+    $.fn.WhiteConDown = function()
     {
         $('.whiteBg').animate({ top : '100%' });
         objects.fadeTo( "slow", 1 );
@@ -122,7 +122,7 @@ $(document).ready(function(){
         Wtcontent.animate({ bottom : '-100%' });
     }
 
-    $.fn.WhiteConUp = function(index)
+    $.fn.WhiteConUp = function()
     {
         $('.whiteBg').animate({ top : '0px' });
         objects.fadeTo( "slow", 0.3 );
@@ -144,7 +144,6 @@ $(document).ready(function(){
        } else if (st == stH && min){
             $.fn.WhiteConUp();
             min = false;
-            console.log('up up up');
        }
 
     });

@@ -141,11 +141,18 @@
 	-o-transition: 0.5s ease-in-out;
 }
 .viewsitebutton:hover{
-	background-position: 0px -65px;
+	-webkit-animation: view 0.5s forwards;
+	-moz-animation: view 0.5s forwards;
+	animation: view 0.5s forwards;
 }
 .support{
-	width: 100%;
+	width: 254px;
 	text-align: center;
+	position: relative;
+}
+.support-jump{
+	left: 86px;
+	position: absolute;
 }
 .MT129{
 	margin-top: 129px;
@@ -689,27 +696,27 @@ select{
 }
 
 @-webkit-keyframes jump {
-	0% {margin-top: 0px;}
-	2% {margin-top: -10px;}
-	5% {margin-top: 10px;}
-	10% {margin-top: 0px;}
-	100% {margin-top: 0px;}
+	0% {top: 0px;}
+	2% {top: -10px;}
+	5% {top: 10px;}
+	10% {top: 0px;}
+	100% {top: 0px;}
 }
  
 @-moz-keyframes jump {
-	0% {margin-top: 0px;}
-	2% {margin-top: -10px;}
-	5% {margin-top: 10px;}
-	10% {margin-top: 0px;}
-	100% {margin-top: 0px;}
+	0% {top: 0px;}
+	2% {top: -10px;}
+	5% {top: 10px;}
+	10% {top: 0px;}
+	100% {top: 0px;}
 }
 
 @keyframes jump {
-	0% {margin-top: 0px;}
-	2% {margin-top: -10px;}
-	5% {margin-top: 10px;}
-	10% {margin-top: 0px;}
-	100% {margin-top: 0px;}
+	0% {top: 0px;}
+	2% {top: -10px;}
+	5% {top: 10px;}
+	10% {top: 0px;}
+	100% {top: 0px;}
 }
 
 /*-----------------Clock Shake Animation--------------------*/
@@ -739,6 +746,23 @@ select{
 	25% {top: -13px;}
 	75% {top: 35px;}
 	100% {top: 12px;}
+}
+
+/*-----------------Clock Shake Animation--------------------*/
+
+@-webkit-keyframes view {
+	0% {background-position: 0px 0px;}
+	100% {background-position: 0px -65px;}
+}
+ 
+@-moz-keyframes view {
+	0% {background-position: 0px 0px;}
+	100% {background-position: 0px -65px;}
+}
+
+@keyframes view {
+	0% {background-position: 0px 0px;}
+	100% {background-position: 0px -65px;}
 }
 
 /*-----------------opic Shake Animation--------------------*/
