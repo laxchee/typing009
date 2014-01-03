@@ -180,6 +180,7 @@ $(function()
     	if ( !shaker ){
         	laxClock();
         	shaker = true;
+        	alert("nana");
     	}
     	else{
     		alertClock();
