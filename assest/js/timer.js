@@ -175,7 +175,7 @@ $(function()
     });
 
 
-    jQuery(window).bind('shakeupdown',function(){
+    jQuery_lates(window).bind('shakeupdown',function(){
 
     	if ( !shaker ){
         	laxClock();
@@ -192,7 +192,7 @@ $(function()
         setTimeout(function(){alertClock()},5000);
     });
 
-    jQuery(".phone-center").bind('pinchclose',function(){
+    jQuery_lates(".phone-center").bind('pinchclose',function(){
     	laxClock();
     	setTimeout(function(){alertClock()},5000);
     });
