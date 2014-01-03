@@ -444,6 +444,7 @@
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
+	z-index: 99;
 }
 
 .setting_date, .setting_breaker, .setting_date, .setting_off{
@@ -835,11 +836,11 @@ select{
 
 @media screen and (max-width: 950px) {
 
-	body{
-		overflow-x: hidden;
-	}
 	.phone-center{
 		width: 100% !important;
+	}
+	.screen_face{
+		margin: 150px auto;
 	}
 	.content-left, .content-right{
 		position: inherit;
@@ -884,9 +885,6 @@ select{
 		width: 60px;
 		height: 65px;
 	}
-	.email-holder{
-		margin-bottom: 30px;
-	}
 	.laxchee{
 		margin-top: 30px;
 	}
@@ -899,6 +897,11 @@ select{
 }
 
 @media screen and (max-width: 320px) {
+
+	body{
+		overflow-x: hidden;
+	}
+
 	.informationHolder{
 		padding: 20px 10px;
 	}
