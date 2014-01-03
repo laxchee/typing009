@@ -287,7 +287,7 @@ Documentation: www.happyworm.com/jquery/jplayer
 				var self = $(this);
 				window.setTimeout( function() {
 					self.volume(config.volume);
-					self.jPlayerReady();
+					// self.jPlayerReady();
 				}, 100);
 			}
 			
@@ -487,9 +487,9 @@ Documentation: www.happyworm.com/jquery/jplayer
 			var prefix = $("#"+jPlayerId).data("jPlayer.config").cssPrefix;
 			$(this).removeClass(prefix + "_hover");
 		},
-		jPlayerReady: function() { // Called from Flash
-			$(this)["jPlayerReady" + $(this).data("jPlayer.config").i]();
-		},
+		// jPlayerReady: function() { // Called from Flash
+		// 	$(this)["jPlayerReady" + $(this).data("jPlayer.config").i]();
+		// },
 		jPlayerGetInfo: function(info) {
 			return $(this).data("jPlayer.config")[info];
 		}

@@ -16,21 +16,7 @@ $(document).ready(function(){
     // --------------------------------------------------------
     // Monster interaction
     // --------------------------------------------------------
-    
-    var faceicon = $(".faceicon");
 
-    jQuery(window).bind('shakeupdown',function(){
-        $('#body').removeClass("pink");
-        faceicon.removeClass('unhappy');
-        faceicon.removeClass('wigglerrr');
-    });
-
-    jQuery("#body").bind('pinchclose',function(){
-        $('#body').addClass("pink");
-        faceicon.addClass('unhappy');
-        faceicon.addClass('wigglerrr');
-    });
-    
     $('.holder').addClass('blurme');
 
     var switchs = 1;
