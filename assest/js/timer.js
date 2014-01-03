@@ -160,8 +160,41 @@ $(function()
 
 
 	/*Timer action, for web and mobile */
-	 $('.stop').click(function(){
-        laxClock();
+    
+    var shaker = true;
+
+	$('.stop').click(function(){
+    	if ( !shaker ){
+        	laxClock();
+        	shaker = true;
+    	}
+    	else{
+    		alertClock();
+    		shaker = false;
+    	}
+    });
+
+
+    jQuery(window).bind('shakeupdown',function(){
+
+    	if ( !shaker ){
+        	laxClock();
+        	shaker = true;
+    	}
+    	else{
+    		alertClock();
+    		shaker = false;
+    	}
+    });
+
+	$('.pause').click(function(){
+    	laxClock();
+        setTimeout(function(){alertClock()},5000);
+    });
+
+    jQuery(".phone-center").bind('pinchclose',function(){
+    	laxClock();
+    	setTimeout(function(){alertClock()},5000);
     });
 
 	/*Handles the updating of the clock and all things done on interval*/
