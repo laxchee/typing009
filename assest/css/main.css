@@ -822,11 +822,106 @@ select{
 	100% {opacity: 1;}
 }
 
+/*-----------------responsive--------------------*/
+@media screen and (max-width: 1200px) {
+	.content-left{
+		left: 30px;
+	}
+	.content-right{
+		right: 30px;
+	}
 
+}
 
+@media screen and (max-width: 950px) {
 
+	body{
+		overflow-x: hidden;
+	}
+	.phone-center{
+		width: 100% !important;
+	}
+	.content-left, .content-right{
+		position: inherit;
+		margin: 0 auto;
+		opacity: 1 !important;
+	}
+	.content-left{
+		margin-top: 60px;
+	}
+	.support, .whiteBg{
+		display: none;
+	}
+	.pause{
+		margin-bottom: 30px;
+	}
+	.informationHolder{
+		padding: 60px 10px;
+		background-color: white;
+		position: inherit;
+	}
+	.WT-main{
+		height: 266px;
+		text-align: center;
+	}
+	.WT{
+		text-align: center;
+	}
+	.WT-main img{
+		width: auto;
+		height: auto;
+	}
+	.email-holder{
+		width: 410px;
+		margin: 0 auto;
+	}
+	.email-holder input{
+		width: 327px;
+		height: 65px;
+		margin-left: 3px;
+	}
+	.submit{
+		width: 60px;
+		height: 65px;
+	}
+	.email-holder{
+		margin-bottom: 30px;
+	}
+	.laxchee{
+		margin-top: 30px;
+	}
+}
+@media screen and (max-width: 568px) {
+	.stop, .pause{
+		display: none;
+	}
 
+}
 
+@media screen and (max-width: 320px) {
+	.informationHolder{
+		padding: 20px 10px;
+	}
+	.WT-main{
+		height: 194px;
+	}
+	.WT-main img{
+		width: 100%;
+	}
+	.email-holder input{
+		width: 227px;
+		height: 50px;
+		margin-left: 2px;
+		font-size: 12px;
+	}
+	.submit{
+		width: 51px;
+		height: 50px;
+	}
+	.WT{
+		text-align: left;
+	}
+}
 
 
 
