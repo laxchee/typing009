@@ -134,7 +134,36 @@ $(function()
 		  	
 	   $("#alarmGroup").css("display","inline");
 	}
-	
+
+	var faceicon = $(".faceicon");
+
+	var alertClock = function(){
+		faceicon.addClass('unhappy');
+        faceicon.removeClass('wiggler');
+        setTimeout(function(){$(".faceicon").addClass('wigglerrr')},500);
+        $(".frame_bg").addClass('frame_bg_alert');
+        $('.content_info div').addClass('white');
+
+	}
+
+	var laxClock = function(){
+		var clock = $(".used");
+		clock.find('.orange').removeClass('orange');
+        clock.find('.rep_light').addClass('rep_light_no');
+        clock.find('.setting_off').addClass('setting_off_off');
+		faceicon.removeClass('unhappy');
+        faceicon.removeClass('wigglerrr');
+        setTimeout(function(){$(".faceicon").addClass('wiggler')},500);
+        $(".frame_bg").removeClass('frame_bg_alert');
+        $('.content_info div').removeClass('white');
+	}
+
+
+	/*Timer action, for web and mobile */
+	 $('.stop').click(function(){
+        laxClock();
+    });
+
 	/*Handles the updating of the clock and all things done on interval*/
 	$.fn.updateClock = function()
 	{
@@ -162,12 +191,7 @@ $(function()
 				 //show the dialog
 				  if($("#dialog").isOpen != true)
 				   {
-				        $(".faceicon").addClass('unhappy');
-				        $(".faceicon").removeClass('wiggler');
-				        setTimeout(function(){$(".faceicon").addClass('wigglerrr')},500);
-				        $(".frame_bg").addClass('frame_bg_alert');
-				        $('.content_info div').addClass('white');
-
+				        alertClock();
 						// $("#dialog").dialog('open');
 				   }
 				  //line through alarms already triggered

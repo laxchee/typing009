@@ -30,18 +30,8 @@ $(document).ready(function(){
         faceicon.addClass('unhappy');
         faceicon.addClass('wigglerrr');
     });
+    
     $('.holder').addClass('blurme');
-
-    $('.Nana').click(function(){
-        $(".used").find('.orange').removeClass('orange');
-        $(".used").find('.rep_light').addClass('rep_light_no');
-        $(".used").find('.setting_off').addClass('setting_off_off');
-        $('#body').removeClass("pink");
-        faceicon.removeClass('unhappy');
-        faceicon.removeClass('wigglerrr');
-        $(".frame_bg").removeClass('frame_bg_alert');
-        setTimeout(function(){faceicon.addClass('wiggler')},500);
-    });
 
     var switchs = 1;
     $('.timer_holder').animate({'marginBottom': '-106px' });
