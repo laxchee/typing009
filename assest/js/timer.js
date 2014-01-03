@@ -185,6 +185,7 @@ $(function()
     	else{
     		alertClock();
     		shaker = false;
+    		alert("nana");
     	}
     });
 
