@@ -192,7 +192,7 @@ $(function()
         setTimeout(function(){alertClock()},5000);
     });
 
-    jQuery(".phone-center").bind('pinchclose',function(){
+    jQuery(".phone-center, .iphone").bind('pinchclose',function(){
     	laxClock();
     	setTimeout(function(){alertClock()},5000);
     });
