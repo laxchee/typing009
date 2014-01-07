@@ -33,6 +33,7 @@ $header = '$email';
 
 if($_POST){
 	mail($to, $subject, $message, $header);
+	alert('adsads');
 }
 ?>
 
