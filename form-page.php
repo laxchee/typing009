@@ -26,9 +26,7 @@ $subject = 'Bweeb Vote';
 if(isset($_POST['email'])){ $email = $_POST['email']; }
 
 $message = <<<EMAIL
-
 Vote for you by $email
-
 EMAIL;
 
 $header = '$email';
