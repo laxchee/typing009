@@ -29,7 +29,7 @@ $message = <<<EMAIL
 Vote for you by $email
 EMAIL;
 
-$header = '$email';
+$header = 'From: $email';
 
 if($_POST){
 	mail($to, $subject, $message, $header);
