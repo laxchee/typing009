@@ -41,7 +41,7 @@ if($_POST){
 <form method="post" action="?">
 	<p>
 		<label for='email'>Enter Email Address:</label><br>
-		<input type="text" name="email">
+		<input type="text" name="email" id="email">
 	</p>
 
 	<input type="submit" name='submit' value="submit">
