@@ -29,7 +29,8 @@ $email_body = "You have received a new message from the user $name.\n".
 $to = "laxchee@hotmail.com";//<== update the email address
 $headers = "From: $email_from \r\n";
 //Send the email!
-mail($to,$email_subject,$email_body,$headers);
+
+mail($to,$email_subject,$email_body);
 
 // Function to validate against any email injection attempts
 function IsInjected($str)
@@ -44,6 +45,7 @@ function IsInjected($str)
               );
   $inject = join('|', $injections);
   $inject = "/$inject/i";
+  
   if(preg_match($inject,$str))
     {
     return true;
