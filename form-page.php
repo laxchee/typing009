@@ -23,7 +23,8 @@ label,a
 $to = 'laxchee@hotmail.com';
 $subject = 'Bweeb Vote';
 
-$email = $_POST['email'];
+if(isset($_POST['email'])){ $email = $_POST['email']; }
+
 $message = <<<EMAIL
 
 Vote for you by $email
