@@ -30,9 +30,6 @@ $to = "laxchee@hotmail.com";//<== update the email address
 $headers = "From: $email_from \r\n";
 //Send the email!
 mail($to,$email_subject,$email_body,$headers);
-//done. redirect to thank-you page.
-header('Location: thank-you.html');
-
 
 // Function to validate against any email injection attempts
 function IsInjected($str)
