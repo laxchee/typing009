@@ -20,13 +20,13 @@ label,a
 
 <?php
 
-$to = 'laxchee@hotmail.com';
+$to = 'lax.chee@2359media.com';
 $subject = 'Bweeb Vote';
 
 if(isset($_POST['email'])){ $email = $_POST['email']; }
 
 $message = <<<EMAIL
-Vote for you by $email
+Vote for you by
 EMAIL;
 
 $header = 'From: $email';
