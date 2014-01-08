@@ -128,6 +128,16 @@ $(document).ready(function(){
         $.fn.WhiteConUp();
     });
 
+    // --------------------------------------------------------
+    // App screen on desktop
+    // --------------------------------------------------------
 
+    var device = navigator.userAgent.toLowerCase();
+    var ios = device.match(/(iphone)/);
+    if (ios) {
+         $('.appIos').removeClass('body');
+         $('.iphone').show();
+         $('.placeholder').hide;
+    }
 
 });

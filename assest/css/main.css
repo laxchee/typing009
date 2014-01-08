@@ -4,7 +4,7 @@
 	margin: 0px;
 	padding: 0px;
 }
-#body{
+.body{
 	background-color: #7ee4db;
 	background-image: url('../images/background_gradient.png');
 	background-repeat: repeat-x;
@@ -70,6 +70,7 @@
 .iphone{
 	margin: 0 !important;
 	overflow: hidden;
+	display: none;
 }
 .content-left{
 	width: 254px;
@@ -148,6 +149,7 @@
 }
 .support{
 	width: 254px;
+	cursor: pointer;
 	text-align: center;
 	position: relative;
 }
@@ -195,6 +197,35 @@
 .WT-main{
 	height: 266px;
 	overflow: hidden;
+}
+
+.placeholder{
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+.innerholder{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.back_btn{
+	width: 254px;
+	height: 65px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	margin: 0 auto;
+	background-image: url('../images/back_btn.png');
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+
+}
+
+.back_btn:hover{
+	background-position: 0 -65px;
+
 }
 /*--------------content information have-----------------*/
 
