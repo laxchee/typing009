@@ -137,7 +137,7 @@ $(document).ready(function(){
     if (ios) {
          $('.appIos').removeClass('body');
          $('.iphone').show();
-         $('.placeholder').hide;
+         $('.placeholder').hide();
     }
 
 });
