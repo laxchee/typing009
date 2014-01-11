@@ -50,8 +50,12 @@
 
 		  // Load the SDK asynchronously
 		  (function(){
+		     // If we've already installed the SDK, we're done
 		     if (document.getElementById('facebook-jssdk')) {return;}
+
+		     // Get the first script element, which we'll use to find the parent node
 		     var firstScriptElement = document.getElementsByTagName('script')[0];
+
 		     // Create a new script element and set its id
 		     var facebookJS = document.createElement('script'); 
 		     facebookJS.id = 'facebook-jssdk';
@@ -62,7 +66,7 @@
 		     // Insert the Facebook JS SDK into the DOM
 		     firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
 		   }());
-		</script>
+			</script>
 
     	<div class="mainHolder">
 	    	<div class="content-left">
@@ -338,10 +342,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
 		<div class="informationHolder">
 			<div class="WT-main"><img src="assest/images/Wt-content-main.png"></div>
 			<div class="email-holder">
-				<input type="text" placeholder="DROP US YOUR EMAIL TO SUPPORT ...">
-				<div class="submit"></div>
+				<!-- <input type="text" placeholder="DROP US YOUR EMAIL TO SUPPORT ...">
+				<div class="submit"></div> -->
+				<div class="fb-like-box" data-href="http://www.bweeb.net" data-width="400" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="false" data-show-border="false"></div>
+
 				<div class="clear"></div>
-				<div class="fb-like" data-href="http://bweeb.net" data-width="400" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="true"></div>
 			</div>
 			<div class="WT"><img src="assest/images/Wt-content-alert.png"></div>
 			<div class="WT"><a href="indexapp.html"><img src="assest/images/Wt-content-app.png"></div>
