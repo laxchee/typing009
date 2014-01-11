@@ -218,9 +218,9 @@ iframe{
 	z-index: 20;
 }
 .email-holder .facebook{
-	width: 312px;
-	height: 63px;
-	padding-left: 27px;
+	width: 321px;
+	height: 71px;
+	padding-left: 18px;
 	font-size: 17px;
 	background-color: transparent;
 	border: 1px solid #727272;
@@ -236,8 +236,9 @@ iframe{
 .submit{
 	border: 1px solid #727272;
 	border-left: 0px;
-	width: 63px;
-	height: 63px;
+	width: 55px;
+	height: 62px;
+	padding: 4px;
 	float: left;
 }
 .WT-main{
