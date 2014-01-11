@@ -217,7 +217,7 @@ iframe{
 	bottom: -100%;
 	z-index: 20;
 }
-.email-holder input{
+.email-holder .facebook{
 	width: 324px;
 	height: 63px;
 	padding-left: 15px;
