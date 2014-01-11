@@ -11,6 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 		<!-- Facebook Meta -->
+		<meta property="og:type" content="website" /> 
+		<meta property="og:url" content="www.bweeb.net" /> 
 		<meta property="og:title" content="Bweeb : Friendly Alarm" /> 
 		<meta property="og:site_name" content="www.bweeb.net" />
 		<meta property="og:description" content="Suppor us by liking our page or facebook page and we will build this app for you. Strive to live on Jun 2014"/>
@@ -36,13 +38,30 @@
 
     <body class="body" >
     	<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1397405623844609',
+		      status     : true,
+		      xfbml      : true
+		    });
+		    // Additional initialization code such as adding Event Listeners goes here
+		  };
+
+		  // Load the SDK asynchronously
+		  (function(){
+		     if (document.getElementById('facebook-jssdk')) {return;}
+		     var firstScriptElement = document.getElementsByTagName('script')[0];
+		     // Create a new script element and set its id
+		     var facebookJS = document.createElement('script'); 
+		     facebookJS.id = 'facebook-jssdk';
+
+		     // Set the new script's source to the source of the Facebook JS SDK
+		     facebookJS.src = '//connect.facebook.net/en_US/all.js';
+
+		     // Insert the Facebook JS SDK into the DOM
+		     firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+		   }());
 		</script>
 
     	<div class="mainHolder">
