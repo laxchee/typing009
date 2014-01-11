@@ -52,16 +52,12 @@
 		  (function(){
 		     if (document.getElementById('facebook-jssdk')) {return;}
 		     var firstScriptElement = document.getElementsByTagName('script')[0];
-		     // Create a new script element and set its id
 		     var facebookJS = document.createElement('script'); 
 		     facebookJS.id = 'facebook-jssdk';
-
-		     // Set the new script's source to the source of the Facebook JS SDK
 		     facebookJS.src = '//connect.facebook.net/en_US/all.js';
-
-		     // Insert the Facebook JS SDK into the DOM
 		     firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
 		   }());
+
 		</script>
 
     	<div class="mainHolder">
@@ -339,10 +335,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
 			<div class="WT-main"><img src="assest/images/Wt-content-main.png"></div>
 			<div class="email-holder">
 				<div class="facebook">
-					<div class="fb-like" data-href="http://bweeb.net" data-width="400" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+					<div class="fb-like-box" data-href="https://www.facebook.com/BweebAlarm" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="false" data-show-border="false"></div>
 				</div>
-				<!-- <input type="text" placeholder="DROP US YOUR EMAIL TO SUPPORT ..."> -->
-				<div class="submit"></div>
+				<div class="submit">
+					<div class="fb-share-button" data-href="http://www.bweeb.net" data-type="box_count"></div>
+				</div>
 				<div class="clear"></div>
 				
 			</div>
