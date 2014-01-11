@@ -1,3 +1,4 @@
+
 *{
 	height: auto;
 	width: auto;
@@ -27,7 +28,9 @@
 .invisible{
 	pointer-events: none;
 }
-
+input, select{
+	border-radius: 0px;
+}
 /*---------------------Embedding Fonts--------------------*/
 @font-face{
   font-family:'blanch';
@@ -109,8 +112,43 @@
 	background-repeat: no-repeat;
 }
 .pause{
+	position: relative;
 	background-image: url('../images/pause.png');
 	background-repeat: no-repeat;
+}
+.pause img{
+	position: absolute;
+}
+.pause img.touch{
+	top: 5px;
+	right: 14px;
+}
+.pause img.pinch01{
+	top: -20px;
+	right: -20px;
+	opacity: 0;
+}
+.pause:hover img.touch{
+	-webkit-animation: pinchhand 2s infinite;
+	-moz-animation: pinchhand 2s infinite;
+	animation: pinchhand 2s infinite;
+}
+.pause:hover img.pinch01{
+	-webkit-animation: pinchtop 2s infinite;
+	-moz-animation: pinchtop 2s infinite;
+	animation: pinchtop 2s infinite;
+
+}
+.pause:hover img.pinch02{
+	-webkit-animation: pinchbottom 2s infinite;
+	-moz-animation: pinchbottom 2s infinite;
+	animation: pinchbottom 2s infinite;
+}
+
+.pause img.pinch02{
+	bottom: -20px;
+	right: 45px;
+	opacity: 0;
 }
 
 .clockimage{
@@ -162,6 +200,8 @@
 	margin-bottom: -15px;
 }
 .informationHolder{
+	padding: 10px;
+	background-color: white;
 	position: fixed;
 	right: 55px;
 	bottom: -100%;
@@ -238,6 +278,8 @@
 	position: fixed;
 	top: 100%;
 	z-index: -2;
+	-webkit-transform: translateZ(0px);
+
 }
 
 /*---------------------iphone content--------------------*/
@@ -801,6 +843,63 @@ select{
 	100% {background-position: 0px -65px;}
 }
 
+/*-----------------Pinch Animation--------------------*/
+
+@-webkit-keyframes pinchtop {
+	0% {opacity: 0; top: -20px; right:-20px;}
+	20%{opacity: 1;}
+	100% {opacity: 0; top: 8px; right: 10px;}
+}
+ 
+@-moz-keyframes pinchtop {
+	0% {opacity: 0; top: -20px; right:-20px;}
+	20%{opacity: 1;}
+	100% {opacity: 0; top: 8px; right: 10px;}
+}
+
+@keyframes pinchtop {
+	0% {opacity: 0; top: -20px; right:-20px;}
+	20%{opacity: 1;}
+	100% {opacity: 0; top: 8px; right: 10px;}
+}
+
+@-webkit-keyframes pinchbottom {
+	0% {opacity: 0; bottom: -20px; right:45px;}
+	20%{opacity: 1;}
+	100% {opacity: 0; bottom: 8px; right: 10px;}
+}
+ 
+@-moz-keyframes pinchbottom {
+	0% {opacity: 0; bottom: -20px; right:45px;}
+	20%{opacity: 1;}
+	100% {opacity: 0; bottom: 8px; right: 10px;}
+}
+
+@keyframes pinchbottom {
+	0% {opacity: 0; bottom: -20px; right:45px;}
+	20%{opacity: 1;}
+	100% {opacity: 0; bottom: 8px; right: 10px;}
+}
+@-webkit-keyframes pinchhand {
+	0% {opacity: 1;}
+	20%{opacity: 0.2;}
+	70% {opacity: 0.2;}
+	100%{opacity: 1;}
+}
+ 
+@-moz-keyframes pinchhand {
+	0% {opacity: 1;}
+	20%{opacity: 0,2;}
+	70% {opacity: 0,2;}
+	100%{opacity: 1;}
+}
+
+@keyframes pinchhand {
+	0% {opacity: 1;}
+	20%{opacity: 0,2;}
+	70% {opacity: 0,2;}
+	100%{opacity: 1;}
+}
 /*-----------------opic Shake Animation--------------------*/
 
 .opic {
@@ -861,6 +960,9 @@ select{
 	}
 	.content-right{
 		right: 30px;
+	}
+	.informationHolder{
+		right: 25px;
 	}
 
 }
