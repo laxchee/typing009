@@ -38,6 +38,16 @@
     </head>
 
     <body class="body" >
+    	<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+
     	<div class="mainHolder">
 	    	<div class="content-left">
 	    		<div class="logo"><img class="invisible" src="assest/images/logo.png"><img class="invisible logo-shadow opic" src="assest/images/logoshadow.png"></div>
@@ -315,6 +325,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
 				<input type="text" placeholder="DROP US YOUR EMAIL TO SUPPORT ...">
 				<div class="submit"></div>
 				<div class="clear"></div>
+				<div class="fb-like" data-href="http://bweeb.net" data-width="100" data-layout="button_count" data-action="recommend" data-show-faces="false" data-share="false"></div>
 			</div>
 			<div class="WT"><img src="assest/images/Wt-content-alert.png"></div>
 			<div class="WT"><a href="indexapp.html"><img src="assest/images/Wt-content-app.png"></div>
