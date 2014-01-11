@@ -31,6 +31,16 @@
 input, select{
 	border-radius: 0px;
 }
+
+.clearfix._5jjq{
+	display: none !important;
+}
+._5jjm ._56zy .uiMentionsInput{
+	min-height: 30px !important;
+}
+iframe{
+	widows: 400px !important;
+}
 /*---------------------Embedding Fonts--------------------*/
 @font-face{
   font-family:'blanch';
