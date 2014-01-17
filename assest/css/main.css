@@ -1016,9 +1016,9 @@ select{
 		width: 410px;
 		margin: 0 auto;
 	}
-	.email-holder input{
-		width: 327px;
-		height: 65px;
+	.email-holder .facebook{
+		width: 316px;
+		height: 63px;
 		margin-left: 3px;
 	}
 	.submit{
@@ -1052,18 +1052,26 @@ select{
 	.WT-main img{
 		width: 100%;
 	}
-	.email-holder input{
-		width: 227px;
-		height: 50px;
+	.email-holder .facebook{
+		width: 277px;
+		height: 71px;
 		margin-left: 2px;
 		font-size: 12px;
 	}
 	.submit{
-		width: 51px;
-		height: 50px;
+		float: none;
+		clear: both;
+		width: 287px;
+		height: 62px;
+		margin-left: 2px;
+		border: 1px solid #727272;
+		border-top: 0px;
 	}
 	.WT{
 		text-align: left;
+	}
+	.fb-share-button.fb_iframe_widget{
+		margin-left: 117px;
 	}
 }
 
