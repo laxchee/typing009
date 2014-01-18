@@ -400,6 +400,8 @@ $(function()
 		
 		$.fn.addAlarmUI(alarmCounter);
 		alarmCounter++;
+		toggle = true ;
+		$.fn.makeTimeStr(new Date());
 		}
 	});
 
@@ -433,15 +435,5 @@ $(function()
     $('#day, #day2').text( currentdate );
     $('#month, #month2').text( month_name ); 
     $('#day_name, #day_name2').text( day_name );
-
-// --------------------------------------------------------
-// Kill Alarm
-// --------------------------------------------------------
-
-    $('.Nana').click(function(){
-
-    });
-
-
 
 });

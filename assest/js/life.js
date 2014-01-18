@@ -7,7 +7,6 @@ $(document).ready(function(){
     // --------------------------------------------------------
 
     var frame = $('.frame').contents().find('body');
-    console.log(frame.length);
     $('.iphone_cover').click(function(){
         $(this).fadeOut( 1300 );
         $('.holder').addClass('blurme2');
