@@ -259,6 +259,7 @@ iframe{
 .back_btn{
 	width: 254px;
 	height: 65px;
+	margin-bottom: 100px;
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-position: 0 0;
@@ -619,7 +620,6 @@ iframe{
 select{
 	border:0;
     background:none;
-    /*padding: 7px;*/
     -webkit-appearance: none;
 }
 

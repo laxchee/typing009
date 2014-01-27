@@ -11,7 +11,6 @@ $(document).ready(function(){
     // Home Screen
     // --------------------------------------------------------
 
-    var frame = $('.frame').contents().find('body'),
     $('.iphone_cover').click(function(){
         $(this).fadeOut( 1300 );
         $('.holder').addClass('blurme2');
