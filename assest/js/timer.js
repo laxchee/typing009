@@ -136,6 +136,9 @@ $(function()
 	}
 
 	var faceicon = $(".faceicon");
+	var audio1 = document.getElementById('audio');
+
+
 
 	var alertClock = function(){
 		timerdrawerClosed();
@@ -144,7 +147,7 @@ $(function()
         faceicon.addClass('unhappy');
         $(".frame_bg").addClass('frame_bg_alert');
         $('.content_info div').addClass('white');
-        audioElement.play();
+    	audio1.play();
         shaker = false;
 	}
 
@@ -158,8 +161,8 @@ $(function()
         clock.find('.orange').removeClass('orange');
         clock.find('.rep_light').addClass('rep_light_no');
         clock.find('.setting_off').addClass('setting_off_off');
-        audioElement.pause();
-        audioElement.currentTime = 0.0;
+        audio1.pause();
+		audio1.currentTime = 0;
         shaker = true;
 	}
 
