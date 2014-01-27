@@ -136,7 +136,16 @@ $(function()
 	}
 
 	var faceicon = $(".faceicon");
-	var audio1 = document.getElementById('audio');
+	var audioElement = document.createElement('audio');
+	audioElement.setAttribute('src', 'assest/js/alarm.mp3');
+	audioElement.load()
+	audioElement.addEventListener("load", function() { 
+	  audioElement.play(); 
+	  $(".duration span").html(audioElement.duration);
+	  $(".filename span").html(audioElement.src);
+	}, true);
+
+	// var audio1 = document.getElementById('audio');
 
 
 
@@ -147,7 +156,7 @@ $(function()
         faceicon.addClass('unhappy');
         $(".frame_bg").addClass('frame_bg_alert');
         $('.content_info div').addClass('white');
-    	audio1.play();
+		audioElement.play();
         shaker = false;
 	}
 
