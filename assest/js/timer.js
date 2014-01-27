@@ -138,24 +138,29 @@ $(function()
 	var faceicon = $(".faceicon");
 
 	var alertClock = function(){
-		faceicon.addClass('unhappy');
+		timerdrawerClosed();
         faceicon.removeClass('wiggler');
-        setTimeout(function(){$(".faceicon").addClass('wigglerrr')},500);
+        setTimeout(function(){ faceicon.addClass('wigglerrr') },500);
+        faceicon.addClass('unhappy');
         $(".frame_bg").addClass('frame_bg_alert');
         $('.content_info div').addClass('white');
-
+        audioElement.play();
+        shaker = false;
 	}
 
 	var laxClock = function(){
 		var clock = $(".used");
-		clock.find('.orange').removeClass('orange');
-        clock.find('.rep_light').addClass('rep_light_no');
-        clock.find('.setting_off').addClass('setting_off_off');
 		faceicon.removeClass('unhappy');
         faceicon.removeClass('wigglerrr');
         setTimeout(function(){$(".faceicon").addClass('wiggler')},500);
         $(".frame_bg").removeClass('frame_bg_alert');
         $('.content_info div').removeClass('white');
+        clock.find('.orange').removeClass('orange');
+        clock.find('.rep_light').addClass('rep_light_no');
+        clock.find('.setting_off').addClass('setting_off_off');
+        audioElement.pause();
+        audioElement.currentTime = 0.0;
+        shaker = true;
 	}
 
 
@@ -169,14 +174,13 @@ $(function()
         	shaker = true;
     	}
     	else{
-    		alertClock();
+    		// alertClock();
     		shaker = false;
     	}
     });
 
 
     jQuery(window).bind('shakeupdown',function(){
-
     	if ( !shaker ){
         	laxClock();
         	shaker = true;
@@ -188,13 +192,13 @@ $(function()
     });
 
 	$('.pause').click(function(){
-    	laxClock();
-        setTimeout(function(){alertClock()},5000);
+		laxClock();
+    	setTimeout(function(){alertClock()},5000);
     });
 
     jQuery(".phone-center, .iphone").bind('pinchclose',function(){
-    	laxClock();
-    	setTimeout(function(){alertClock()},5000);
+    		laxClock();
+    		setTimeout(function(){alertClock()},5000);
     });
 
 	/*Handles the updating of the clock and all things done on interval*/
@@ -211,21 +215,10 @@ $(function()
 		   //get the milisecond time stamps, then round it down to seconds for comparision 			
 			 if((parseInt(alarmDate[i].getTime()/1000,10) == parseInt(currentTime.getTime()/1000,10)))
 			  {		 
-				 if(alarmTone[i] != null)
-				  {	 
-					//play the alarm
-					// $("#jquery_jplayer").setFile(alarmTone[i]).play(); 
-					console.log('adsandjkasbdkjasbdkjsabdjkasb jkdbsjakd kasndlkasmdlmakldnklsamdnlks');
-				  }
-				 else
-				  {
-					//trigger silent alarm
-				  } 
 				 //show the dialog
 				  if($("#dialog").isOpen != true)
 				   {
 				        alertClock();
-						// $("#dialog").dialog('open');
 				   }
 				  //line through alarms already triggered
 					$('#alarm'+i).addClass('used');
@@ -435,5 +428,137 @@ $(function()
     $('#day, #day2').text( currentdate );
     $('#month, #month2').text( month_name ); 
     $('#day_name, #day_name2').text( day_name );
+
+// --------------------------------------------------------
+// Monster interaction
+// --------------------------------------------------------
+
+    var switchs = 1;
+
+    var timerdrawer = function(){
+        var time_height = $('.time_alarm').height(),
+            time_total = 0 - time_height - 106 + 'px';
+
+        if( switchs == 0 ){
+            $('.timer_holder').animate({'marginBottom': time_total });
+            switchs++;   
+        }
+        else if( switchs == 1 ){
+            $('.timer_holder').animate({'marginBottom': '0px' });
+            switchs--;   
+        }
+    };
+
+    var timerdrawerClosed = function(){
+        var time_height = $('.time_alarm').height(),
+            time_total = 0 - time_height - 106 + 'px';
+
+        if( switchs == 0 ){
+            $('.timer_holder').animate({'marginBottom': time_total });
+        }
+        
+    };
+
+    $('.timer_holder').animate({'marginBottom': '-106px' });
+    $('.time_header').click(function(){
+    	timerdrawer();
+    });
+
+// --------------------------------------------------------
+// Alarm Sound
+// --------------------------------------------------------
+
+	var audioElement = document.createElement('audio');
+	    audioElement.setAttribute('src', 'assest/js/alarm.mp3');
+    
+// --------------------------------------------------------
+// Font import
+// --------------------------------------------------------
+
+    WebFontConfig = {
+    google: { families: [ 'Rationale::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+
+    WebFontConfig = {
+    google: { families: [ 'Lato:400,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+
+// --------------------------------------------------------
+// rep-day trigger
+// --------------------------------------------------------
+
+    $('.rep-day').click(function(){
+        $(this).toggleClass('active');
+        var repinfo = $(this).attr('data-true');
+
+        if( $(this).hasClass('active') ){
+            repinfo++;
+        }
+        
+    });
+
+// --------------------------------------------------------
+// White Content drawer
+// --------------------------------------------------------
+    
+    var objects = $('.content-left, .content-right');
+    var Wtcontent = $('.informationHolder');
+
+    $.fn.WhiteConDown = function()
+    {
+        $('.whiteBg').animate({ top : '100%' });
+        objects.fadeTo( "slow", 1 );
+        objects.css({ zIndex : '10' });
+        $('.phone-center').animate({ width : '100%' });
+        Wtcontent.animate({ bottom : '-100%' });
+    }
+
+    $.fn.WhiteConUp = function()
+    {
+        $('.whiteBg').animate({ top : '0px' });
+        objects.fadeTo( "slow", 0.3 );
+        objects.css({ zIndex : '-2' });
+        $('.phone-center').animate({ width : '60%' });
+        Wtcontent.animate({ bottom : '30px', top : 'inherit' });
+    }
+
+    var lastScrollTop = 0,
+        min = true;
+    $(window).scroll(function(event){
+       var st = $(this).scrollTop();
+       var stH = $(document).height() - $(window).height()
+
+       if (st == lastScrollTop && !min){
+            $.fn.WhiteConDown();
+            min = true;
+
+       } else if (st == stH && min){
+            $.fn.WhiteConUp();
+            min = false;
+       }
+
+    });
+
+    $('.support').click(function(){
+        $.fn.WhiteConUp();
+    });
 
 });
