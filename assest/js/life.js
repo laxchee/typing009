@@ -11,10 +11,13 @@ $(document).ready(function(){
     // --------------------------------------------------------
     // Home Screen
     // --------------------------------------------------------
-
+    var audio1 = document.getElementById('audio');
     $('.iphone_cover').click(function(){
         $(this).fadeOut( 1300 );
         $('.holder').addClass('blurme2');
+        audio1.play();
+        audio1.pause();
+        audio1.currentTime = 0;
     });
 
 });
