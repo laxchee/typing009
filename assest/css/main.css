@@ -24,7 +24,7 @@
 }
 audio{
 	position: absolute;
-	left: 900px;
+	left: -900px;
 	top: 0px;
 }
 .ui-widget-overlay{
