@@ -11,22 +11,20 @@ $(document).ready(function(){
     // --------------------------------------------------------
     // Home Screen
     // --------------------------------------------------------
+    var button = $('.iphone_cover');
     var audio1 = document.getElementById('audio');
+    var onClick = function() {
+        audio1.play(); // audio will load and then play
+        // audio1.pause();
+        // audio1.currentTime = 0;
+    };
 
     $('.iphone_cover').click(function(){
         $(this).fadeOut( 1300 );
         $('.holder').addClass('blurme2');
-        // audio1.load();
-        audio1.play();
+        onClick();
     });
 
-    var button = $('.iphone_cover');
-    var audio = document.getElementById('audio');
-
-    var onClick = function() {
-        audio.play(); // audio will load and then play
-    };
-
-    button.addEventListener('click', onClick, false);
+    
 
 });
