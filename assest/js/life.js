@@ -7,6 +7,7 @@ $(document).ready(function(){
         $('.appIos').removeClass('body');
         $('.iphone').show();
         $('.placeholder').hide();
+        $(".time_header").hide();
     }
     // --------------------------------------------------------
     // Home Screen
@@ -22,6 +23,7 @@ $(document).ready(function(){
     $('.iphone_cover').click(function(){
         $(this).fadeOut( 1300 );
         $('.holder').addClass('blurme2');
+        $(".time_header").show();
         onClick();
     });
 
