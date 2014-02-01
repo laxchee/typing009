@@ -16,8 +16,8 @@ $(document).ready(function(){
         $(this).fadeOut( 1300 );
         $('.holder').addClass('blurme2');
         audio1.play();
-        audio1.pause();
-        audio1.currentTime = 0;
+        // audio1.pause();
+        // audio1.currentTime = 0;
     });
 
 });
