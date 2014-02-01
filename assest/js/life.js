@@ -23,11 +23,11 @@ $(document).ready(function(){
 
     function html5_audio(){
     var a = document.createElement('audio');
-    return !!(a.canPlayType && a.canPlayType('audio/mpeg;').replace(/no/, ''));
+    return !!(a.canPlayType && a.canPlayType('audio/mp3;').replace(/no/, ''));
     }
      
-    var play_html5_audio = false;
-    if(html5_audio()) play_html5_audio = true;
+    var play_html5_audio = true;
+    // if(html5_audio()) play_html5_audio = true;
      
     function play_sound(url){
         if(play_html5_audio){
@@ -36,7 +36,7 @@ $(document).ready(function(){
             snd.play();
         }else{
             $("#sound").remove();
-            var sound = $("<embed id='sound' type='audio/mpeg' />");
+            var sound = $("<embed id='sound' type='audio/mp3' />");
             sound.attr('src', url);
             sound.attr('loop', false);
             sound.attr('hidden', true);
