@@ -476,17 +476,18 @@ $(function()
         
     };
 
+    var audio1 = document.getElementById('audio');
+    var onClick = function() {
+        audio1.play(); // audio will load and then play
+        audio1.pause();
+        audio1.currentTime = 0;
+    };
+
     $('.timer_holder').animate({'marginBottom': '-106px' });
     $('.time_header').click(function(){
+    	onClick();
     	timerdrawer();
     });
-
-// --------------------------------------------------------
-// Alarm Sound
-// --------------------------------------------------------
-
-	var audioElement = document.createElement('audio');
-	    audioElement.setAttribute('src', 'assest/js/alarm.mp3');
     
 // --------------------------------------------------------
 // Font import
