@@ -15,8 +15,8 @@ $(document).ready(function(){
     var audio1 = document.getElementById('audio');
     var onClick = function() {
         audio1.play(); // audio will load and then play
-        // audio1.pause();
-        // audio1.currentTime = 0;
+        audio1.pause();
+        audio1.currentTime = 0;
     };
 
     $('.iphone_cover').click(function(){
